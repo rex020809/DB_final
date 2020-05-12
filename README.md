@@ -1,4 +1,1 @@
 # DB_final
-
-model
-=====
