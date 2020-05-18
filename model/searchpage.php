@@ -6,8 +6,8 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>資料搜尋</title>
-        <?php require('../src/head.php')
-		?>
+        <?php require('../src/head.php')?>
+        <?php require('../src/head.php')?>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>資料搜尋</title>
 
@@ -20,6 +20,7 @@
 	<input type="submit" name="button" value="搜尋">
     </form>
 <?php
+
 require('db_check.php');
 $conn = db_check();
 mysqli_query( $conn, "SET NAMES 'utf8'");
