@@ -2,7 +2,8 @@
 
 <?php
 
-    require("../model/db_check.php"); //引入 db_check() 函數
+    //引入 db_check() 函數
+    require("../model/db_check.php"); 
 
     $conn = db_check();
 
@@ -12,7 +13,6 @@
         $account = stripcslashes($_POST['account']);
         $passwd = stripcslashes($_POST['passwd']);
         $cfm_passwd = stripcslashes($_POST['cfm_passwd']);
-
 
         if(strlen($name) == 0 || strlen($account) == 0 || strlen($passwd) == 0 || strlen($cfm_passwd) == 0)
         {
@@ -33,7 +33,7 @@
             }
             else
             {
-                $update = "INSERT INTO accounts(n, acc, passwd) VALUES('$name', '$account', '$passwd')" ;
+                $update = "INSERT INTO member(n, acc, passwd) VALUES('$name', '$account', '$passwd')" ;
                 mysqli_query($conn, $update);
                 //echo "名稱： $name ,註冊帳號： $account , 密碼： $passwd, ";
                 header("location: index.php");
@@ -48,8 +48,8 @@
 
 <head>
 
+    <?php require("../src/head.php") ?>
     <link rel="stylesheet" href="../src/css/loginPage.css">
-    <require href = "../src/head.php">
     <title>註冊頁面</title>
 
 </head>

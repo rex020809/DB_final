@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
     }
     else{
 
-        $result = mysqli_query($conn, "SELECT * FROM accounts WHERE acc = '$account' AND passwd ='$passwd'");
+        $result = mysqli_query($conn, "SELECT * FROM member WHERE acc = '$account' AND passwd ='$password'");
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
     
@@ -27,7 +27,7 @@ if(isset($_POST['submit']))
         {
             echo "登入成功 名稱：" . $row['n'];
             setcookie("username", $row['n'], time()+3600);
-            header("location: index.php");
+            header("location: ../index.php");
         }
     }
 }
@@ -39,12 +39,8 @@ if(isset($_POST['submit']))
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
+    <?php require("../src/head.php") ?>
     <link rel="stylesheet" type = "text/css" href="../src/css/loginPage.css"></style>
     <title>登入頁面</title>
 
@@ -71,7 +67,7 @@ if(isset($_POST['submit']))
                 <button type="submit" class="btn-block btn-primary" name="submit">登入</button>
             </form>
             
-            <button type="button" class="btn-block btn-primary" style="margin-top:3px" onclick="location.href = 'index.php'">返回</button>
+            <button type="button" class="btn-block btn-primary" style="margin-top:3px" onclick="location.href = '../index.php'">返回</button>
         </div>   
     </div>
 </body>

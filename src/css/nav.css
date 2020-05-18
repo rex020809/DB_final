@@ -10,9 +10,9 @@ div.topnav > nav.bg-navbar{
 }
   
   /* Style the links inside the navigation bar */
-.topnav a {
+div.topnav > nav a {
   float: left;
-  color: #08001a28;
+  color: #fffffffd;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
