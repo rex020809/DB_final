@@ -3,19 +3,8 @@
 
 <html>
 <head>
-<<<<<<< HEAD
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>資料搜尋</title>
-        <?php require('../src/head.php') 
-		?>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>資料搜尋</title>
-
-=======
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>資料搜尋</title>
->>>>>>> 5/18
 </head>
 
 <body>
@@ -32,11 +21,8 @@ $search = $_POST['search'];
 $query = "SELECT * FROM product WHERE p_name LIKE '%$search%' ";
 $data=mysqli_query($conn,$query);
 
-<<<<<<< HEAD
-=======
 	
 
->>>>>>> 5/18
 ?>
 
 <table width="700" border="0">
@@ -47,20 +33,9 @@ for($i=1;$i<=mysqli_num_rows($data);$i++){
 $rs=mysqli_fetch_row($data);
 ?>
   <tr>
-<<<<<<< HEAD
     <td><?php echo $rs[1]?></td>
     <td><?php echo $rs[2]?></td>
     <td><?php echo $rs[6]?></td>
-=======
-    <td><?php echo $rs[0]?></td>
-    <td><?php echo $rs[1]?></td>
-    <td><?php echo $rs[2]?></td>
-    <td><?php echo $rs[3]?></td>
-    <td><?php echo $rs[4]?></td>
-    <td><?php echo $rs[5]?></td>
-    <td><?php echo $rs[6]?></td>
-    <td><?php echo $rs[7]?></td>
->>>>>>> 5/18
   </tr>
     <?php
 	}
@@ -68,12 +43,4 @@ $rs=mysqli_fetch_row($data);
 ?>
   </table>
  </body>
-<<<<<<< HEAD
-
 </html>
-
-
-
-=======
-</html>
->>>>>>> 5/18
