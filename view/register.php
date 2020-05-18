@@ -1,11 +1,10 @@
+
+
 <?php
 
-    $DBNAME = "user_account";
-    $DBUSER = "root";
-    $DBPASSWD = "";
-    $DBHOST = "localhost";
+    require("../model/db_check.php"); //引入 db_check() 函數
 
-    $conn = mysqli_connect($DBHOST,$DBUSER,$DBPASSWD, $DBNAME) or die("fail to connect");
+    $conn = db_check();
 
     if(isset($_POST['submit']))
     {
@@ -25,7 +24,7 @@
         }
         else    //尋找有沒有相同帳號
         {
-            $result = mysqli_query($conn, "SELECT * FROM accounts WHERE acc = '$account'");
+            $result = mysqli_query($conn, "SELECT * FROM member WHERE acc = '$account'");
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
             if(isset($row['acc']))//已經註冊過了
@@ -36,7 +35,7 @@
             {
                 $update = "INSERT INTO accounts(n, acc, passwd) VALUES('$name', '$account', '$passwd')" ;
                 mysqli_query($conn, $update);
-                echo "名稱： $name ,註冊帳號： $account , 密碼： $passwd, ";
+                //echo "名稱： $name ,註冊帳號： $account , 密碼： $passwd, ";
                 header("location: index.php");
             }
         }
@@ -48,13 +47,9 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="../src/css/loginPage.css">
+    <require href = "../src/head.php">
     <title>註冊頁面</title>
 
 </head>
@@ -89,7 +84,7 @@
                 <button type="submit" class="btn-block btn-primary" name="submit">註冊</button>
             </form>
             
-            <button type="button" class="btn-block btn-primary" style="margin-top:3px" onclick="location.href = 'index.php'">返回</button>
+            <button type="button" class="btn-block btn-primary" style="margin-top:3px" onclick="location.href = '../index.php'">返回</button>
         </div>   
     </div>
 </body>

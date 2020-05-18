@@ -1,13 +1,8 @@
 <?php
 
+require("../model/db_check.php"); //引入 db_check() 函數
 
-$DBNAME = "user_account";
-$DBUSER = "root";
-$DBPASSWD = "";
-$DBHOST = "localhost";
-
-$conn = mysqli_connect($DBHOST,$DBUSER,$DBPASSWD, $DBNAME) or die("fail to connect");
-
+$conn = db_check();
 
 if(isset($_POST['submit']))
 {

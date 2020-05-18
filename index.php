@@ -31,7 +31,7 @@
 
           <div class = "col-xl-2 col-xl-offset-1">
             <a class = "float-right" href = "view/login.php">登入</a>
-            <a class = "float-right" href = "#">註冊</a>
+            <a class = "float-right" href = "view/register.php">註冊</a>
           </div>
       </div>
     </nav>
