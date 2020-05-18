@@ -6,7 +6,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>資料搜尋</title>
-        <?php require('../src/head.php') 
+        <?php require('../src/head.php')
 		?>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>資料搜尋</title>
@@ -20,8 +20,8 @@
 	<input type="submit" name="button" value="搜尋">
     </form>
 <?php
-require('config.php');
-$conn = @mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+require('db_check.php');
+$conn = db_check();
 mysqli_query( $conn, "SET NAMES 'utf8'");
 $search = $_POST['search'];
 $query = "SELECT * FROM product WHERE p_name LIKE '%$search%' ";
@@ -49,6 +49,3 @@ $rs=mysqli_fetch_row($data);
  </body>
 
 </html>
-
-
-
