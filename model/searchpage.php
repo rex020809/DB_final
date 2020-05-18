@@ -33,9 +33,20 @@ for($i=1;$i<=mysqli_num_rows($data);$i++){
 $rs=mysqli_fetch_row($data);
 ?>
   <tr>
+<<<<<<< HEAD
     <td><?php echo $rs[1]?></td>
     <td><?php echo $rs[2]?></td>
     <td><?php echo $rs[6]?></td>
+=======
+    <td><?php echo $rs[0]?></td>
+    <td><?php echo $rs[1]?></td>
+    <td><?php echo $rs[2]?></td>
+    <td><?php echo $rs[3]?></td>
+    <td><?php echo $rs[4]?></td>
+    <td><?php echo $rs[5]?></td>
+    <td><?php echo $rs[6]?></td>
+    <td><?php echo $rs[7]?></td>
+>>>>>>> 5/18
   </tr>
     <?php
 	}
