@@ -3,14 +3,14 @@
 
 <html>
 <head>
-<<<<<<< HEAD
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>資料搜尋</title>
-=======
-        <?php require('../src/head.php') ?>
+        <?php require('../src/head.php') 
+		?>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>資料搜尋</title>
->>>>>>> 9f2757da019dfcd60dc5a64caee1eee756fb7f3e
+
 </head>
 
 <body>
@@ -26,12 +26,6 @@ mysqli_query( $conn, "SET NAMES 'utf8'");
 $search = $_POST['search'];
 $query = "SELECT * FROM product WHERE p_name LIKE '%$search%' ";
 $data=mysqli_query($conn,$query);
-
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> 9f2757da019dfcd60dc5a64caee1eee756fb7f3e
 
 ?>
 
@@ -53,8 +47,8 @@ $rs=mysqli_fetch_row($data);
 ?>
   </table>
  </body>
-<<<<<<< HEAD
+
 </html>
-=======
-</html>
->>>>>>> 9f2757da019dfcd60dc5a64caee1eee756fb7f3e
+
+
+
