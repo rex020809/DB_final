@@ -3,8 +3,9 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>資料搜尋</title>
+        <?php require('../src/head.php') ?>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>資料搜尋</title>
 </head>
 
 <body>
@@ -21,7 +22,7 @@ $search = $_POST['search'];
 $query = "SELECT * FROM product WHERE p_name LIKE '%$search%' ";
 $data=mysqli_query($conn,$query);
 
-	
+
 
 ?>
 
