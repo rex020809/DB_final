@@ -1,0 +1,31 @@
+/* Add a background color to the top navigation */
+.bg-primary{
+  background-color:rgb(29, 119, 7);
+  box-shadow: 0px 3px 8px 0px #000;
+}
+
+div.topnav > nav.bg-navbar{
+  background-color: rgb(93, 7, 119);
+  overflow: hidden;
+}
+  
+  /* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #08001a28;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav input[type = "submit"]
+{
+  padding:5px 15px;
+  background: #a81f1f;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+}
+
