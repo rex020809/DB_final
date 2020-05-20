@@ -1,4 +1,6 @@
 <link rel="stylesheet" type = "text/css" href="../src/css/nav.css">
+
+<!-- 搜尋欄navbar (會黏在最上層) -->
 <div class = "topnav">
   <!--有些地方還要修 有可能會把<div container>標籤拿掉 所以在其他css裡面盡量先不要引用container  by學弟-->
     <nav class = "navbar bg-navbar ">
@@ -31,3 +33,9 @@
     </nav>
 </div>
 
+<!-- 類別navbar -->
+<div class = "category-nav">
+  <nav class = "navbar bg-category">
+    <!-- 自行增加類別 -->
+  </nav>
+</div>
