@@ -1,6 +1,12 @@
+div.topnav
+{
+  position: sticky;
+  top:0;
+}
+
 /* Add a background color to the top navigation */
 div.topnav > nav.bg-navbar{
-  background-color: rgba(0, 22, 29, 0.952);
+  background-color: rgb(2, 30, 39);
   overflow: hidden;
 }
   
@@ -65,3 +71,4 @@ div.topnav > nav a {
 {
   display:block;
 }
+
