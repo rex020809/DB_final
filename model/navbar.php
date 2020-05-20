@@ -1,6 +1,6 @@
 <link rel="stylesheet" type = "text/css" href="../src/css/nav.css">
 <div class = "topnav">
-  <!--有些地方還要修 有可能會把<nav>標籤拿掉 所以在其他css裡面盡量先不要引用nav  by學弟-->
+  <!--有些地方還要修 有可能會把<div container>標籤拿掉 所以在其他css裡面盡量先不要引用container  by學弟-->
     <nav class = "navbar bg-navbar ">
       <div class = "container-fluid">
 
