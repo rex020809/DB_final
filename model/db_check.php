@@ -8,7 +8,7 @@ function db_check() {
     if ($conn->connect_error) {
         die("連接失敗: " . $conn->connect_error);
     }
-    echo "連接成功";
+    echo " ";
     return  $conn;
 }
 ?>

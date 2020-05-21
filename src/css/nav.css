@@ -1,0 +1,84 @@
+div.topnav
+{
+  position: sticky;
+  top:0;
+  z-index: 10;
+}
+
+/* Add a background color to the top navigation */
+div.topnav > nav.bg-navbar{
+  background-color: rgb(2, 30, 39);
+  overflow: hidden;
+}
+  
+/* Style the links inside the navigation bar */
+div.topnav > nav a {
+  float: left;
+  color: #fffffffd;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover
+{
+  background-color : white;
+  color : black;
+}
+
+.topnav a > i > ul
+{
+  display:none;
+}
+
+.topnav a:hover > i > ul
+{
+  display:block;
+  z-index: 0;
+}
+
+.topnav input[type = "text"]
+{
+
+  background:rgba(54,54,54,1);
+  border:0 none;
+  -webkit-border-radius:8px;
+          border-radius:8px;
+  color:rgba(94,107,108,1)
+}
+
+.topnav input[type = "submit"]:hover
+{
+  background:rgba(179, 107, 0, 0.836);
+}
+
+.topnav input[type = "submit"]
+{
+  padding:5px 15px;
+  background: rgb(255,153,0);
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 15px;
+          border-radius: 15px;
+}
+
+.topnav div.dropdown a.h li
+{
+  display:none;
+}
+
+.topnav div.dropdown a.h:hover li
+{
+  display:block;
+}
+
+
+.category-nav > nav.bg-category
+{
+  background-color: rgb(49, 68, 75);
+  overflow: hidden;
+}
+
+
+

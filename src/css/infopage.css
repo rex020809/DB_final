@@ -1,0 +1,31 @@
+div.mainb
+{
+	position:relative;
+	background-color: rgb(2, 30, 39);
+	background-size=cover;
+}
+
+table.flex
+{
+	display:flex;
+	width:1200px;
+	padding:15px;
+	justify-content:space-around;
+	
+}
+.flex1
+{
+	flex:1;
+	justify-content:center;
+	text-align:center;
+	background-color:rgba(54,54,54,1);
+	
+	
+}
+
+tr.tab
+{
+	font-size:1.2em;
+	text-decoration: none;
+	color: #ffffff;
+}
