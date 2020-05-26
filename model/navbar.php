@@ -14,7 +14,7 @@
 
           <div class = "col-xl-6 col-xl-offset-2">
             <form action="searchpage.php" method="POST">
-                <input type ="text" name = "search" placeholder = " 搜尋商品" style ="width:90%">
+                <input type ="text" name = "search"  placeholder = " 搜尋商品" style ="width:90%">
                 <input type ="submit" value = "搜尋">
             </form>
           </div>
