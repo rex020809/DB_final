@@ -55,38 +55,42 @@
 				<!-- 商品瀏覽部分 -->
 				<div id="product_display">
 					<?php
+						//-------抓篩選的資料-----------
 						$minprice = $_GET['minprice'];
 						$maxprice = $_GET['maxprice'];
 						$category = $_GET['category'];
 						$p_sort = $_GET['pricing_sort'];
 						$pnumber = $_GET['pnumber'];
+
+						//-------看價格區間有沒有設定，沒有的話先給default------
 						if (!isset($_GET['minprice'])) {
 							$minprice=0;
 							$maxprice=999999;
 						}
+
+						//---------連資料庫，開始抓資料------------
 						require('../model/db_check.php');
 						$conn = db_check();
 						$sql="SELECT * FROM product WHERE price < $maxprice AND price > $minprice ";
-						$c_filter = " category = '$category' ";
-						$sort_filter = "ORDER BY";
+						$c_filter = " category = '$category' ";//這行目前沒寫完
+						$sort_filter = "ORDER BY";//這行也沒寫完
 						$result = mysqli_query($conn, $sql);
 						$result_num=mysqli_num_rows($result);
-						$rnum=$result_num/4+1;
-						for ($i=0; $i < $rnum; $i++) {
+
+						//----------抓資料完畢，以下開始秀資料
+						$rnum=$result_num/4+1; //決定要秀幾個row的變數
+						for ($i=0; $i < $rnum; $i++) { //決定要秀幾個row的迴圈
 					?>
-					<div class="product_row">
+					<div class="product_row"> <!-- row的html -->
 						<?php
-							if (($result_num-4*$i)<4) $cnum=$result_num-4*$i;
+							if (($result_num-4*$i)<4) $cnum=$result_num-4*$i; //決定要秀幾個col的變數
 							else $cnum=4;
-							// echo $i;
-							// echo "\n";
-							// echo "result_num=".$result_num."\n";
-							// echo "rnum=".$rnum."\n";
-							// echo "cnum=".$cnum."\n";
-							for ($j=0; $j < $cnum; $j++) {
+							for ($j=0; $j < $cnum; $j++) { //決定要秀幾個col的迴圈
 								$row = mysqli_fetch_assoc($result);
 						?>
-						<a href="..model/infopage.php?p_id=<?php echo $row['p_id']; ?> " >
+
+						<!-- 每個商品的html -->
+						<a href="../model/infopage.php?p_id=<?php echo $row['p_id']; ?> " >
 						<div class="product_sum">
 							<img src="../src/images/default.png" alt="not found!">
 							<div class="product_title">
