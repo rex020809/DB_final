@@ -86,6 +86,7 @@
 							for ($j=0; $j < $cnum; $j++) {
 								$row = mysqli_fetch_assoc($result);
 						?>
+						<a href="..model/infopage.php?p_id= <?php echo $row['p_id']; ?> " >
 						<div class="product_sum">
 							<img src="../src/images/default.png" alt="not found!">
 							<div class="product_title">
@@ -96,6 +97,7 @@
 								</ul>
 							</div>
 						</div>
+						</a>
 					<?php }?>
 					</div>
 					<?php }?>
