@@ -27,6 +27,12 @@
 /* 商品瀏覽 */
 #product_display{
     border: 2px solid black;
+    //width: 600px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 #product_display .product_row{  /* 單一商品方框 */
@@ -41,9 +47,9 @@
     flex-direction: column;
     align-items:center;
     justify-content:center;
-    margin: 0px 10px 0px 10px;
+    margin: 20px 10px 0px 10px;
     border: 2px solid black;
-    width:220px;
+    width:210px;
 } /* 單一商品方框 */
 
 #product_display img{  /* 商品照片 */

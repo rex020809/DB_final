@@ -78,32 +78,23 @@
 						$result_num=mysqli_num_rows($result);
 
 						//----------抓資料完畢，以下開始秀資料
-						$rnum=$result_num/4+1; //決定要秀幾個row的變數
-						for ($i=0; $i < $rnum; $i++) { //決定要秀幾個row的迴圈
+						for ($i=0; $i < $result_num; $i++) {
+							$row = mysqli_fetch_assoc($result);//決定要秀幾個row的迴圈
 					?>
-					<div class="product_row"> <!-- row的html -->
-						<?php
-							if (($result_num-4*$i)<4) $cnum=$result_num-4*$i; //決定要秀幾個col的變數
-							else $cnum=4;
-							for ($j=0; $j < $cnum; $j++) { //決定要秀幾個col的迴圈
-								$row = mysqli_fetch_assoc($result);
-						?>
-
 						<!-- 每個商品的html -->
-						<a href="../model/infopage.php?p_id=<?php echo $row['p_id']; ?> " >
-						<div class="product_sum">
-							<img src="../src/images/default.png" alt="not found!">
-							<div class="product_title">
-								<ul>
-									<li><?= $row['p_name'] ?></li>
-									<li><?= '價格$'.$row['price'] ?></li>
-									<li><?= $row['stock'].' left' ?></li>
-								</ul>
+							<div class="product_sum">
+								<img src="../src/images/default.png" alt="not found!">
+								<a href="../model/infopage.php?p_id=<?php echo $row['p_id']; ?> " >
+								<div class="product_title">
+									<ul>
+										<li><?= $row['p_name'] ?></li>
+										<li><?= '價格$'.$row['price'] ?></li>
+										<li><?= $row['stock'].' left' ?></li>
+									</ul>
+								</div>
+								</a>
 							</div>
-						</div>
-						</a>
-					<?php }?>
-					</div>
+
 					<?php }?>
 				</div>
 
@@ -112,8 +103,7 @@
 
 
 			</div>
-
-  </div>
+  		</div>
  </div>
 
 
