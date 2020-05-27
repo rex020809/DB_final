@@ -32,7 +32,8 @@
 
           <div class = "dropdown-content dropdown-menu dropdown-menu-right">
 
-            <!-- 這裡放購物車的清單 -->
+            <!-- 這裡放購物車的清單(用cookie) -->
+            <!-- hover有點怪怪的晚點修 -->
             <li>購物車裡面空空的</li>
 
           </div>
@@ -51,7 +52,7 @@
         ?>
         
           <!-- 不然就顯示使用者名稱&登出 -->
-          <a class = "floar-right" href = "#"><?php if(isset($_SESSION['username']) && $_SESSION['username'] != null){ echo "HI, " . $_SESSION['username']; } ?></a>
+          <a class = "floar-right" href = "#"><?php if(isset($_SESSION['name']) && $_SESSION['name'] != null){ echo "HI, " . $_SESSION['name']; } ?></a>
           <a class = "float-right" href = "#">登出</a>
 
         <?php 
