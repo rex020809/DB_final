@@ -17,7 +17,7 @@
 					<!-- 篩選商品種類 -->
 					<label>Category:</label>
 					<select name="category" >
-						<option value="none">all</option>
+						<option value="all">all</option>
 						<option value="iphone">iPhone</option>
 						<option value="ipad">iPad</option>
 						<option value="mac">Mac</option>
@@ -55,46 +55,71 @@
 				<!-- 商品瀏覽部分 -->
 				<div id="product_display">
 					<?php
-						//-------抓篩選的資料-----------
-						$minprice = $_GET['minprice'];
-						$maxprice = $_GET['maxprice'];
-						$category = $_GET['category'];
-						$p_sort = $_GET['pricing_sort'];
-						$pnumber = $_GET['pnumber'];
-
-						//-------看價格區間有沒有設定，沒有的話先給default------
+						//-------抓篩選的資料(初始化)-----------
 						if (!isset($_GET['minprice'])) {
 							$minprice=0;
 							$maxprice=999999;
+						} else {
+							$minprice = @$_GET['minprice'];
+							$maxprice = @$_GET['maxprice'];
 						}
+
+						if (!isset($_GET['category'])) {
+							$category = "all";
+						} else {
+							$category = @$_GET['category'];
+						}
+
+						if (!isset($_GET['pricing_sort'])) {
+							$category = "none";
+						} else {
+							$p_sort = @$_GET['pricing_sort'];
+						}
+
+						if (!isset($_GET['pnmber'])) {
+							$category = 8;
+						} else {
+							$pnumber = @$_GET['pnumber'];
+						}
+
+						//-------看價格區間有沒有設定，沒有的話先給default------
+
 
 						//---------連資料庫，開始抓資料------------
 						require('../model/db_check.php');
 						$conn = db_check();
 						$sql="SELECT * FROM product WHERE price < $maxprice AND price > $minprice ";
-						$c_filter = " category = '$category' ";//這行目前沒寫完
-						$sort_filter = "ORDER BY";//這行也沒寫完
+
+						 //類別篩選
+						$c_filter = " category = 'AND $category' ";
+
+						 //排序篩選
+						$sort_filter = "ORDER BY";
+
 						$result = mysqli_query($conn, $sql);
 						$result_num=mysqli_num_rows($result);
+
+						//改動每頁顯示商品
+						$page_num = $result_num/$pnumber;
 
 						//----------抓資料完畢，以下開始秀資料
 						for ($i=0; $i < $result_num; $i++) {
 							$row = mysqli_fetch_assoc($result);//決定要秀幾個row的迴圈
 					?>
-						<!-- 每個商品的html -->
-							<div class="product_sum">
-								<img src="../src/images/default.png" alt="not found!">
-								<a href="../model/infopage.php?p_id=<?php echo $row['p_id']; ?> " >
-								<div class="product_title">
-									<ul>
-										<li><?= $row['p_name'] ?></li>
-										<li><?= '價格$'.$row['price'] ?></li>
-										<li><?= $row['stock'].' left' ?></li>
-									</ul>
-								</div>
-								</a>
-							</div>
 
+						<!-- 每個商品的html -->
+						<div class="product_sum">
+							<img src="../src/images/default.png" alt="not found!">
+							<a href="../model/infopage.php?p_id=<?php echo $row['p_id']; ?> " >
+							<div class="product_title">
+								<ul>
+									<li><?= $row['p_name'] ?></li>
+									<li><?= '價格$'.$row['price'] ?></li>
+									<li><?= $row['stock'].' left' ?></li>
+								</ul>
+							</div>
+							</a>
+						</div>
 					<?php }?>
 				</div>
 
