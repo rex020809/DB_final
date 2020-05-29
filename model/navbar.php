@@ -42,7 +42,7 @@
 
           </div>
           
-          
+
           <?php
             if(!isset($_SESSION['isLogin'])){
             ?>
@@ -56,7 +56,9 @@
             ?>
         
             <!-- 不然就顯示使用者名稱&登出 -->
-            <a class = "floar-right" href = "#"><?php if(isset($_SESSION['name']) && $_SESSION['name'] != null){ echo "HI, " . $_SESSION['name']; } ?></a>
+            <a class = "float-right" href = "#">  
+              <?php if(isset($_SESSION['name']) && $_SESSION['name'] != null) { echo "HI, " . $_SESSION['name']; } ?> 
+            </a>
             <a class = "float-right" href = "#">登出</a>
 
             <?php 
