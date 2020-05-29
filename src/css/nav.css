@@ -7,7 +7,7 @@ div.topnav
 /* Add a background color to the top navigation */
 div.topnav > nav.bg-navbar{
   background-color: rgb(2, 30, 39);
-  overflow: hidden;
+
 }
   
 /* Style the links inside the navigation bar */
@@ -67,11 +67,13 @@ div.topnav > nav a {
 
 .topnav div.dropdown .dropdown-content
 {
-  display:none;
-  position:absolute;
-  top:10px;
-  background-color: #f9f9f9;
+  float:left;
+  border:10 none;
+  top:60px;
+
+  background-color: #fffffffd;
   width: 160px;
+  
 }
 
 .topnav div.dropdown .dropdown-content li{
@@ -86,6 +88,8 @@ div.topnav > nav a {
 .topnav div.dropdown:hover .dropdown-content
 {
   display:block;
+  position:absolute;
+  z-index: 2;
 }
 
 
