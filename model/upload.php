@@ -3,7 +3,7 @@
 
 <?php
 
-    function uploadFiles($path)
+    function uploadFiles($conn, $p_id, $path)
     {
         // 計算總共上傳了多少檔案
         $total = count($_FILES["uploadFile"]["name"]);
@@ -31,6 +31,10 @@
                 // 把暫存檔案儲存至本地資料夾
                 move_uploaded_file($_FILES["uploadFile"]["tmp_name"][$i], $file_oldname);
                 rename($file_oldname, $file_newname);
+
+                // 把圖片資訊上傳至資料庫
+                $product_browse = "INSERT INTO product_browse(p_id, pic_num, pic_src, click_times) VALUES('$p_id', '$i', '$file_newname', 0)";
+                mysqli_query($conn, $product_browse);
             }
         }
 
@@ -44,7 +48,6 @@
 
     if(isset($_POST['submit']))
     {
-        echo "進入資料庫";
 
         /* 找編號的方法待定 我先隨便用一個 */
         // 從資料庫讀最大的編號再 + 1
@@ -63,12 +66,12 @@
         // 上傳商品至資料庫
         $upload = "INSERT INTO product(p_id, p_name, style, category, tag, price, stock, p_info) VALUES('$p_id', '$p_name', '$style', '$category', '$tag', '$price', '$stock', '$p_info')";
         mysqli_query($conn, $upload);
-
     
+        // 上傳圖片至本地及資料庫
         $path = "../src/images/product/".$p_id;
-        uploadFiles($path);
+        uploadFiles($conn, $p_id, $path);
 
-        header("location: product_upload.php");
+        header("location: ../index.php");
     }
 
 
