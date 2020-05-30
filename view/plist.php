@@ -7,9 +7,9 @@
 
 	<div class="container-fluid" style="border:3px solid red; padding:0px 5vw 0px 5vw;">
 		<div class="row" style="border:2px solid blue;">
-			<div class="col-a col-md-3" style="border:1px solid green;">Column 1
+			<div class="col-a col-md-2" style="border:1px solid green;">Column 1
 			</div>
-			<div class="col-b col-md-9" style="border:1px solid yellow;">
+			<div class="col-b col-md-10" style="border:1px solid yellow;">
 
 				<!--  篩選選項欄位 -->
 				<FORM class="form-horizontal" METHOD="GET" id="filter" style="text-align:center">
@@ -95,20 +95,19 @@
 						require('../model/db_check.php');
 						$conn = db_check();
 						$sql="SELECT * FROM product WHERE price < $maxprice AND price > $minprice ";
-						
-					    
+
+
 						//類別篩選
 						$c_filter = "AND category = '$category' ";
-						
+
 						if( $category != 'all'){
 							$sql=$sql.$c_filter;
 						}
-						
+
 						//排序篩選
 						$sort_filter = "ORDER BY price $p_sort";
 						if ($p_sort!='none'){
-							//$sql="SELECT * FROM product.$sort_filter.price.$p_sort";
-							$sql = $sql.$sort_filter;	
+							$sql = $sql.$sort_filter;
 						}
 						//echo $sql;
 						$result = mysqli_query($conn, $sql);
@@ -136,11 +135,8 @@
 							<img src="../src/images/default.png" alt="not found!">
 							<a href="../model/infopage.php?p_id=<?php echo $row['p_id']; ?> " >
 							<div class="product_title">
-								<ul>
-									<li><?= $row['p_name'] ?></li>
-									<li><?= '價格$'.$row['price'] ?></li>
-									<li><?= $row['stock'].' left' ?></li>
-								</ul>
+								<?= $row['p_name'] ?><br><br>
+								<?= '價格$'.$row['price']."/ ".$row['stock'].' left' ?><br><br>
 							</div>
 							</a>
 						</div>

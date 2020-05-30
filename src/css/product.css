@@ -1,7 +1,10 @@
-
+body{
+    background-color: black;
+}
 
 .row .col-b{
-    padding:20px 0px 20px 0px;
+    background-color: white;
+    padding:0px 0px 0px 0px;
 }
 
 
@@ -33,7 +36,7 @@
 /* 商品瀏覽 */
 #product_display{
     border: 2px solid black;
-    padding-bottom: 20px;
+    padding: 0 0 20px 0;
     display:flex;
     align-items:flex-start;
     justify-content:center;
@@ -46,21 +49,22 @@
     flex-direction: column;
     align-items:center;
     justify-content:center;
-    margin: 20px 10px 0px 10px;
+    margin: 30px 10px 0px 10px;
     border: 2px solid black;
-    width:210px;
+    width:230px;
 } /* 單一商品方框 */
 
 #product_display img{  /* 商品照片 */
     border: 2px solid black;
-    width:210px;
+    width:230px;
     height:280px;
 }
 
 #product_display .product_title{ /* 商品簡述 */
     text-align: left;
-    width:210px;
-    border: 2px solid black;
+    width:230px;
+    border:2px solid black;
+    padding:5px 5px 5px 10px;
 }
 
 /* 頁數顯示欄位 */
