@@ -71,7 +71,7 @@
 						}
 
 						if (!isset($_GET['pricing_sort'])) {
-							$category = "none";
+							$p_sort = "none";
 						} else {
 							$p_sort = @$_GET['pricing_sort'];
 						}
@@ -96,10 +96,10 @@
 						$conn = db_check();
 						$sql="SELECT * FROM product WHERE price < $maxprice AND price > $minprice ";
 
-						 //類別篩選
+						//類別篩選
 						$c_filter = " category = 'AND $category' ";
 
-						 //排序篩選
+						//排序篩選
 						$sort_filter = "ORDER BY";
 
 						$result = mysqli_query($conn, $sql);
