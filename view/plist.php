@@ -76,10 +76,16 @@
 							$p_sort = @$_GET['pricing_sort'];
 						}
 
-						if (!isset($_GET['pnmber'])) {
-							$category = 8;
+						if (!isset($_GET['pnumber'])) {
+							$pnumber = 8;
 						} else {
 							$pnumber = @$_GET['pnumber'];
+						}
+
+						if (!isset($_GET['page'])) {
+							$page = 0;
+						} else {
+							$page = @$_GET['page'];
 						}
 
 						//-------看價格區間有沒有設定，沒有的話先給default------
@@ -103,8 +109,17 @@
 						$page_num = $result_num/$pnumber;
 
 						//----------抓資料完畢，以下開始秀資料
-						for ($i=0; $i < $result_num; $i++) {
-							$row = mysqli_fetch_assoc($result);//決定要秀幾個row的迴圈
+						for ($i=0; $i < $page*$pnumber ; $i++) { //根據頁數把前面不要的篩掉
+							$row = mysqli_fetch_assoc($result);
+						}
+
+						if (($page_num-$page)<1) {  //設定這個頁面要顯示多少個商品
+							$pnumber_this=$result_num%$pnumber;
+						} else {
+							$pnumber_this=$pnumber;
+						}
+						for ($i=0; $i < $pnumber_this; $i++) { //抓資料，印出商品
+							$row = mysqli_fetch_assoc($result);
 					?>
 
 						<!-- 每個商品的html -->
@@ -123,9 +138,24 @@
 					<?php }?>
 				</div>
 
-
-
-
+				<!-- 顯示頁數的欄位 -->
+				<div id="page_index">
+					<?php
+						$query="category=$category&pricing_sort=$p_sort&minprice=$minprice&maxprice=$maxprice&pnumber=$pnumber";
+						if ($page!=0) {
+							$tmp = $page-1;
+					?>
+						<a href="plist.php?<?="$query"."&page=$tmp"?>"> 上一頁 </a>
+					<?php }?>
+					<?php for ($i=0; $i < $page_num; $i++) { ?>
+						<a href="plist.php?<?="$query"."&page=$i"?>"> <?= $i+1 ?></a>
+					<?php } ?>
+					<?php if(($page_num-$page)>=1){
+						$tmp = $page+1;
+					?>
+					    <a href="plist.php?<?="$query"."&page=$tmp"?>"> 下一頁 </a>
+					<?php } ?>
+				</div>
 
 			</div>
   		</div>

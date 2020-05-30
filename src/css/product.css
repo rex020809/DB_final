@@ -1,9 +1,15 @@
 
 
+.row .col-b{
+    padding:20px 0px 20px 0px;
+}
+
+
 /* 篩選欄位排版 */
 #filter {
-    margin: 10px 0px 10px 0px;
-    border: 2px solid yellow;
+    margin: 0 0 0 0 ;
+    padding: 15px 0px 15px 0px;
+    border: 2px solid black;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -27,20 +33,13 @@
 /* 商品瀏覽 */
 #product_display{
     border: 2px solid black;
-    //width: 600px;
+    padding-bottom: 20px;
     display:flex;
     align-items:flex-start;
     justify-content:center;
     flex-wrap: wrap;
     flex-direction: row;
 }
-
-#product_display .product_row{  /* 單一商品方框 */
-    padding-top:10px;
-    display:flex;
-    align-items:flex-start;
-    justify-content:center;
-} /* 商品列 */
 
 #product_display .product_sum{  /* 單一商品方框 */
     display:flex;
@@ -62,4 +61,27 @@
     text-align: left;
     width:210px;
     border: 2px solid black;
+}
+
+/* 頁數顯示欄位 */
+#page_index {
+    padding: 15px 0px 15px 0px;
+    border: 2px solid black;
+    height: auto;
+    text-align: center;
+    /* display: flex;
+    align-items:center;
+    justify-content:center; */
+}
+
+#page_index a{
+	border:1px solid #ccc;
+	border-radius:3px;
+	padding:4px 10px 5px;
+	font-size:14px;/*修復行內元素之間空隙間隔*/
+	margin-right:10px;
+}
+
+#page_index a:hover{
+	background-color: #ffbe94;
 }
