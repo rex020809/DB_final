@@ -30,17 +30,57 @@
 
                 // 把暫存檔案儲存至本地資料夾
                 move_uploaded_file($_FILES["uploadFile"]["tmp_name"][$i], $file_oldname);
-
-                // 檔案編號
                 rename($file_oldname, $file_newname);
             }
         }
 
     } 
 
+
+    require("../model/db_check.php");
+
+     
+    $conn = db_check();
+
+    if(isset($_POST['submit']))
+    {
+        echo "進入資料庫";
+        /* 找編號的方法待定 我先隨便用一個 */
+
+        // 從資料庫讀最大的編號再 + 1
+        $result = mysqli_query($conn, "SELECT MAX(p_id) FROM product");
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        //$p_id = $row['p_id'];
+        if(isset($row['p_id']))
+        {
+            echo "有讀到值";
+        else
+        {
+            echo "沒讀到值";
+        }
+
+        /*
+        $p_name   = stripcslashes($_POST['p_name']);
+        $style    = stripcslashes($_POST['style']);
+        $category = stripcslashes($_POST['category']);
+        $tag      = stripcslashes($_POST['tag']);
+        $price    = $_POST['price'];
+        $stock    = $_POST['stock'];
+        $p_info   = stripcslashes($_POST['p_info']);
+
+
+        // 上傳商品至資料庫
+        $upload = "INSERT INTO product(p_id, p_name, style, category, tag, price, stock, p_info) VALUES('$p_id', '$p_name', '$style', '$category', '$tag', '$price', '$stock', '$p_info')";
+        mysqli($conn, $upload);
+
     
-    $path = "../src/images/product/1";
-    uploadFiles($path);
+        $path = "../src/images/product/".$p_id;
+        uploadFiles($path);
+        */
+
+    }
+
+
 
 
 
