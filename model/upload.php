@@ -45,21 +45,13 @@
     if(isset($_POST['submit']))
     {
         echo "進入資料庫";
-        /* 找編號的方法待定 我先隨便用一個 */
 
+        /* 找編號的方法待定 我先隨便用一個 */
         // 從資料庫讀最大的編號再 + 1
         $result = mysqli_query($conn, "SELECT MAX(p_id) FROM product");
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        //$p_id = $row['p_id'];
-        if(isset($row['p_id']))
-        {
-            echo "有讀到值";
-        else
-        {
-            echo "沒讀到值";
-        }
+        $p_id = $row['MAX(p_id)'] + 1;
 
-        /*
         $p_name   = stripcslashes($_POST['p_name']);
         $style    = stripcslashes($_POST['style']);
         $category = stripcslashes($_POST['category']);
@@ -68,16 +60,15 @@
         $stock    = $_POST['stock'];
         $p_info   = stripcslashes($_POST['p_info']);
 
-
         // 上傳商品至資料庫
         $upload = "INSERT INTO product(p_id, p_name, style, category, tag, price, stock, p_info) VALUES('$p_id', '$p_name', '$style', '$category', '$tag', '$price', '$stock', '$p_info')";
-        mysqli($conn, $upload);
+        mysqli_query($conn, $upload);
 
     
         $path = "../src/images/product/".$p_id;
         uploadFiles($path);
-        */
 
+        header("location: product_upload.php");
     }
 
 
@@ -114,6 +105,6 @@
     */
 
 
-    //header("location: product_upload.php");
+
 
 ?>
