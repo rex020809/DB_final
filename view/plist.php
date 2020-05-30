@@ -27,8 +27,8 @@
 					<label> pricing sort:</label>
 					<select name="pricing_sort">
 						<option value="none">Plz select</option>
-						<option value="ascend">ascend</option>
-						<option value="descend">descend</option>
+						<option value="ASC">ascend</option>
+						<option value="DESC">descend</option>
 					</select>
 
 					<!-- 價格區間:interval，兩個格子的最小值都是0,label是為了使各項form有所區隔，margin:上 右 下 左-->
@@ -95,15 +95,24 @@
 						require('../model/db_check.php');
 						$conn = db_check();
 						$sql="SELECT * FROM product WHERE price < $maxprice AND price > $minprice ";
-
+						
+					    
 						//類別篩選
-						$c_filter = " category = 'AND $category' ";
-
+						$c_filter = "AND category = '$category' ";
+						
+						if( $category != 'all'){
+							$sql=$sql.$c_filter;
+						}
+						
 						//排序篩選
-						$sort_filter = "ORDER BY";
-
+						$sort_filter = "ORDER BY price $p_sort";
+						if ($p_sort!='none'){
+							//$sql="SELECT * FROM product.$sort_filter.price.$p_sort";
+							$sql = $sql.$sort_filter;	
+						}
+						//echo $sql;
 						$result = mysqli_query($conn, $sql);
-						$result_num=mysqli_num_rows($result);
+						$result_num = mysqli_num_rows($result);
 
 						//改動每頁顯示商品
 						$page_num = $result_num/$pnumber;
@@ -150,7 +159,7 @@
 					<?php for ($i=0; $i < $page_num; $i++) { ?>
 						<a href="plist.php?<?="$query"."&page=$i"?>"> <?= $i+1 ?></a>
 					<?php } ?>
-					<?php if(($page_num-$page)>=1){
+					<?php if(($page_num-$page)>1){
 						$tmp = $page+1;
 					?>
 					    <a href="plist.php?<?="$query"."&page=$tmp"?>"> 下一頁 </a>
