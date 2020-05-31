@@ -12,9 +12,9 @@ session_destroy();
 <?php require('navbar.php')?>
 
 <body>
+
 <?php
-//$id=$_SESSION['id'];
-$id="A0001"
+$id=$_GET['p_id'];
 ?>
 <?php
 
@@ -29,22 +29,36 @@ if ($pic!='')
 	$pict=mysqli_fetch_row($pic);
 }
 
-
-	
-function m()
-{
-	if ($count>1)
-	{
-	$count=$count-1;
-	$_GET['shopcount']=$_GET['shopcount']-1;
-}
-}
-function p()
-{
-	$count=$count+1;
-	$_GET['shopcount']=$_GET['shopcount']+1;
-}
+$count=1
 ?>
+
+<script language="javascript">
+
+function pm(num)
+{
+	if (num>0)
+	{
+	var t=document.getElementById("txt");
+	<?php $count=$count+1; 
+	?>
+	t.value="<?php echo $count;?>";
+	return false;
+	}
+	else
+	var t =document.getElementById("txt");
+	{
+	if (t>1)
+	{
+	<?php $count=$count-1; ?>
+	}
+	t.value="<?php echo $count;?>";
+	return false;
+	}
+}
+</script>
+
+
+
 <div class="mainb">
 <?php if ($name!=''){
 	$namee=mysqli_fetch_row($name);
@@ -62,37 +76,35 @@ function p()
 <br>
 <div class="button">
 <form action="infopage.php" method="GET">
-<input type="submit" onclick="m()" value="-">
-<input type="number" name="shopcount" value="<?php echo $count; ?>" min="1" >
-<input type="submit" onclick="p()" value="+">
+<input type="button" onclick="pm(-1)" value="-">
+<input type="number" id="txt" name="shopcount" value="<?php echo $count; ?>" >
+<input type="button" onclick="pm(1)" value="+">
 </form>
 
 </div>
 <div >	
 <form class="plus">
-<input  type="submit" value="加入購物車">
+<input type="submit" value="加入購物車">
 </form>
 </div>
-
 </div>
+
 <div class="flexC">
 <p><?php echo $namee[7];?></p>
 
 
 
 </div>
-
-
 </div>
+
+
 
 <?php 
 }
 ?>
 
 </div>
-<?php
-$count=$_GET['shopcount'];
-?>
+
 </body>
 
 </html>

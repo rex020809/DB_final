@@ -55,11 +55,11 @@
 				<!-- 商品瀏覽部分 -->
 				<div id="product_display">
 					<?php
-						$minprice = $_GET['minprice'];
-						$maxprice = $_GET['maxprice'];
-						$category = $_GET['category'];
-						$p_sort = $_GET['pricing_sort'];
-						$pnumber = $_GET['pnumber'];
+						$minprice =@$_GET['minprice'];
+						$maxprice =@$_GET['maxprice'];
+						$category =@$_GET['category'];
+						$p_sort =@$_GET['pricing_sort'];
+						$pnumber =@$_GET['pnumber'];
 						if (!isset($_GET['minprice'])) {
 							$minprice=0;
 							$maxprice=999999;
@@ -86,6 +86,7 @@
 							for ($j=0; $j < $cnum; $j++) {
 								$row = mysqli_fetch_assoc($result);
 						?>
+						<a href="../model/infopage.php?p_id=<?php echo $row['p_id']; ?> " >
 						<div class="product_sum">
 							<img src="../src/images/default.png" alt="not found!">
 							<div class="product_title">
@@ -96,6 +97,7 @@
 								</ul>
 							</div>
 						</div>
+						</a>
 					<?php }?>
 					</div>
 					<?php }?>
