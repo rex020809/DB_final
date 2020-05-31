@@ -131,6 +131,7 @@
 
 						<!-- 每個商品的html -->
 						<div class="product_sum">
+							
 							<img src="../src/images/default.png" alt="not found!">
 							<a href="../model/infopage.php?p_id=<?php echo $row['p_id']; ?> " >
 							<div class="product_title">

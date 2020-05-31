@@ -19,7 +19,7 @@ if(isset($_SESSION['isLogin'])){
 				<h1 align="center" valign="center">Login</h1>
 				<div class="login">
 					<form name="form" method="post" action="../model/login_check.php">
-						<input id="username" type="text" name="username" placeholder="帳號" /><br>
+						<input id="account" type="text" name="account" placeholder="帳號" /><br>
 						<input id="password" type="password" name="password" placeholder="密碼" /><br>
 						<button type="submit" name="submit" value="login"/>登入</button>
 						<input type="button" value="註冊" onclick="location.href='../view/registration.php'">
@@ -47,26 +47,26 @@ if(isset($_SESSION['isLogin'])){
 
 	button{
 		color: #FFFF;
-		padding:5px 15px; 
-		background:#F19833; 
+		padding:5px 15px;
+		background:#F19833;
 		border:0 none;
 		cursor:pointer;
 		-webkit-border-radius: 5px;
-		border-radius: 5px; 
+		border-radius: 5px;
 		margin-bottom: 20px;
 	}
 
 	input[type="button"]{
 		color: #FFFF;
-		padding:5px 15px; 
-		background:#F19833; 
+		padding:5px 15px;
+		background:#F19833;
 		border:0 none;
 		cursor:pointer;
 		-webkit-border-radius: 5px;
-		border-radius: 5px; 
+		border-radius: 5px;
 		margin-bottom: 20px;
 	}
- 
+
 	input{
 	    color: linen;
 	    padding:10px 30px;
@@ -78,7 +78,7 @@ if(isset($_SESSION['isLogin'])){
 		margin-bottom: 20px;
 	}
 
-	    
+
 	.login{
 		padding-top: 50px;
 		text-align: center
@@ -90,12 +90,12 @@ if(isset($_SESSION['isLogin'])){
 
 	.reg{
 		color: #FFFF;
-		padding:5px 15px; 
-		background:#F19833; 
+		padding:5px 15px;
+		background:#F19833;
 		border:0 none;
 		cursor:pointer;
 		-webkit-border-radius: 5px;
-		border-radius: 5px; 
+		border-radius: 5px;
 		margin-bottom: 20px;
 	}
 </style>
@@ -122,5 +122,5 @@ function getUrlVars()
 }
 </script>
 
-	
+
 </html>

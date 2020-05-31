@@ -12,7 +12,7 @@
 			<div class="col-4" id="login">
 				<h1 align="center" valign="center">Registration</h1>
 				<div class="register">
-					<form id="form" name="form" onsubmit="return false" action="../model/registration_check.php">
+					<form id="form" name="form"  action="../model/registration_check.php">
 						<input id="email" type="email" name="email" placeholder="請輸入E-mail" /><br>
 						<input id="c_num" type="tel" name="c_num" placeholder="請輸入手機號碼" pattern="09[0-9]{8}" required /><br>
 						<input id="b_date" type="date" name="b_date"/><br>
@@ -50,25 +50,25 @@
 
 	button{
 		color: linen;
-		padding:5px 15px; 
-		background:#F19833; 
+		padding:5px 15px;
+		background:#F19833;
 		border:0 none;
 		cursor:pointer;
 		-webkit-border-radius: 5px;
 		border-radius: 5px;
-		margin-top: 10px; 
+		margin-top: 10px;
 		margin-bottom: 20px;
 	}
-    
+
     input{
 
-		padding: 10px 30px; 
+		padding: 10px 30px;
 		border: 1px solid linen;
 		background: #0000;
 		color: linen;
 		cursor: pointer;
 		-webkit-border-radius: 5px;
-		border-radius: 5px; 
+		border-radius: 5px;
 		margin-bottom: 20px;
 	}
 
@@ -90,7 +90,7 @@ $("#form").submit(function(e) {
       text: '請再確認一次密碼',
     });
     return;
-  } 
+  }
   else {
 
     var params = {
@@ -131,7 +131,7 @@ $("#form").submit(function(e) {
         }
       }
     });
-    e.preventDefault(); // avoid to execute the actual submit of the form.
+    //e.preventDefault(); // avoid to execute the actual submit of the form.
   }
 });
 </script>

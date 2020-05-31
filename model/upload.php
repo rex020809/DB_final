@@ -17,9 +17,11 @@
                 // 檢查路徑是否存在，如果不存在就新建資料夾
                 if(!file_exists($path))
                 {
-                    mkdir($path, 0777, true);
+
+                    mkdir($path, 0700, true);
+
                 }
-                
+
                 // 取得上傳之檔案類型
                 $filetype = explode('.', $_FILES["uploadFile"]["name"][$i]);
 
@@ -29,21 +31,26 @@
 
 
                 // 把暫存檔案儲存至本地資料夾
-                move_uploaded_file($_FILES["uploadFile"]["tmp_name"][$i], $file_oldname);
-                rename($file_oldname, $file_newname);
+                move_uploaded_file($_FILES["uploadFile"]["tmp_name"][$i], $file_oldname) or die("fuckyourmom");
+                rename($file_oldname, $file_newname) ;
 
                 // 把圖片資訊上傳至資料庫
                 $product_browse = "INSERT INTO product_browse(p_id, pic_num, pic_src, click_times) VALUES('$p_id', '$i', '$file_newname', 0)";
                 mysqli_query($conn, $product_browse);
             }
+            else
+            {
+                echo $_FILES["uploadFile"]["error"][$i];
+
+            }
         }
 
-    } 
+    }
 
 
     require("../model/db_check.php");
 
-     
+
     $conn = db_check();
 
     if(isset($_POST['submit']))
@@ -66,12 +73,12 @@
         // 上傳商品至資料庫
         $upload = "INSERT INTO product(p_id, p_name, style, category, tag, price, stock, p_info) VALUES('$p_id', '$p_name', '$style', '$category', '$tag', '$price', '$stock', '$p_info')";
         mysqli_query($conn, $upload);
-    
+
         // 上傳圖片至本地及資料庫
         $path = "../src/images/product/".$p_id;
         uploadFiles($conn, $p_id, $path);
 
-        header("location: ../index.php");
+        //header("location: ../view/plist.php");
     }
 
 

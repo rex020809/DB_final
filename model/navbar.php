@@ -7,10 +7,10 @@
 
     <nav class = "navbar bg-navbar ">
 
-        <a class = "nav-brand" href="../index.php"> 
-          <img src = "../src/images/logo.png" style="width:50%; height:50%">
+        <a class = "nav-brand" href="../index.php">
+          <img src = "../src/images/logo.png" style="width:150px%; height:90px">
         </a>
-          
+
         <!-- SearchBox -->
         <form class = "form-inline">
 
@@ -23,7 +23,7 @@
           </div>
 
         </form>
-          
+
 
         <!-- 跟登入有關的東西寫在這塊底下 -->
         <div class = "nav-right">
@@ -36,37 +36,37 @@
 
             <!-- 這裡放被加入購物車內的商品清單(讀取cookie資訊) -->
             <div class = "dropdown-content dropdown-menu dropdown-menu-right">
-              <li>購物車裡面空空的fdsaffdsafs</li> 
+              <li>購物車裡面空空的fdsaffdsafs</li>
               <hr>
             </div>
 
           </div>
-          
+
 
           <?php
             if(!isset($_SESSION['isLogin'])){
             ?>
 
             <!-- 如果還沒登入則顯示登入按鈕 -->
-            <a class = "float-right" href = "#">登入</a>
+            <a class = "float-right" href = "../view/login.php">登入</a>
 
-            <?php 
-            } 
+            <?php
+            }
             else{
             ?>
-        
-            <!-- 不然就顯示使用者名稱&登出 -->
-            <a class = "float-right" href = "#">  
-              <?php if(isset($_SESSION['name']) && $_SESSION['name'] != null) { echo "HI, " . $_SESSION['name']; } ?> 
-            </a>
-            <a class = "float-right" href = "#">登出</a>
 
-            <?php 
-            } 
+            <!-- 不然就顯示使用者名稱&登出 -->
+            <a class = "float-right" href = "#">
+              <?php if(isset($_SESSION['name']) && $_SESSION['name'] != null) { echo "HI, " . $_SESSION['name']; } ?>
+            </a>
+            <a class = "float-right" href = "../model/logout.php">登出</a>
+
+            <?php
+            }
           ?>
 
         </div>
-          
+
     </nav>
 
 </div>

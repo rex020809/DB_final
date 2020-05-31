@@ -2,6 +2,7 @@ div.topnav
 {
   position: sticky;
   top:0;
+  z-index: 100;
 }
 
 /* Add a background color to the top navigation */
@@ -9,7 +10,7 @@ div.topnav > nav.bg-navbar{
   background-color: rgb(2, 30, 39);
 
 }
-  
+
 /* Style the links inside the navigation bar */
 div.topnav > nav a {
   float: left;
@@ -53,7 +54,7 @@ div.topnav > nav a {
   padding:5px 15px;
   background: rgb(255,153,0);
   border:0 none;
-  cursor:pointer;   
+  cursor:pointer;
 
 
   -webkit-border-radius: 15px;
@@ -73,7 +74,7 @@ div.topnav > nav a {
 
   background-color: #fffffffd;
   width: 160px;
-  
+
 }
 
 .topnav div.dropdown .dropdown-content li{
@@ -98,8 +99,3 @@ div.topnav > nav a {
   background-color: rgb(49, 68, 75);
   overflow: hidden;
 }
-
-
-
-
-
