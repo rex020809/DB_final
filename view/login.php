@@ -1,76 +1,126 @@
 <?php
-
-require("../model/db_check.php"); //引入 db_check() 函數
-
-$conn = db_check();
-
-if(isset($_POST['submit']))
-{
-    $account = stripcslashes($_POST['account']);
-    $passwd = stripcslashes($_POST['passwd']);
-
-    if(strlen($account) == 0 || strlen($passwd) == 0)
-    {
-        echo "欄位不得為空";
-    }
-    else{
-
-        $result = mysqli_query($conn, "SELECT * FROM member WHERE acc = '$account' AND passwd ='$password'");
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-    
-        if(!isset($row['acc']))//沒找到帳號密碼都符合的
-        {
-            echo "帳號或密碼錯誤, 請重新輸入";
-        }
-        else
-        {
-            echo "登入成功 名稱：" . $row['n'];
-            setcookie("username", $row['n'], time()+3600);
-            header("location: ../index.php");
-        }
-    }
+if(isset($_SESSION['isLogin'])){
+	header("Location: plist.php");
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html>
-
 <head>
-
-    <?php require("../src/head.php") ?>
-    <link rel="stylesheet" type = "text/css" href="../src/css/loginPage.css"></style>
-    <title>登入頁面</title>
-
+	<?php require("../src/head.php"); ?>
+	<title>Login</title>
 </head>
 <body>
+	<?php require("../model/navbar.php"); ?>
+	<div class="container">
+		<div class="row">
+			<div class="col-8"><h1>地方的媽媽需要陪伴。</h1></div>
+			<div class="col-4" id="login">
+				<h1 align="center" valign="center">Login</h1>
+				<div class="login">
+					<form name="form" method="post" action="../model/login_check.php">
+						<input id="username" type="text" name="username" placeholder="帳號" /><br>
+						<input id="password" type="password" name="password" placeholder="密碼" /><br>
+						<button type="submit" name="submit" value="login"/>登入</button>
+						<input type="button" value="註冊" onclick="location.href='../view/registration.php'">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <div class="card">
-
-        <div class="card-head">
-        <h3>Login Your Account</h3>
-        </div>
-        <div class="card-body">
-            <form method = "post" action="login.php">
-                
-                <div class="form-group">
-                    <label for="account">Account:</label>
-                    <input type="account" class="form-control" placeholder="Your Account" name="account">
-                </div>
-                <div class="form-group">
-                    <label for="passwd">Password:</label>
-                    <input type="password" class="form-control" placeholder="Password" name="passwd">
-                </div>
-                <a href='register.php' >還沒有帳號嗎?</a>
-                <button type="submit" class="btn-block btn-primary" name="submit">登入</button>
-            </form>
-            
-            <button type="button" class="btn-block btn-primary" style="margin-top:3px" onclick="location.href = '../index.php'">返回</button>
-        </div>   
-    </div>
 </body>
 
+<style>
 
+	body{
+	background-color: black;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	}
+
+	h1{
+		margin-top: 10px;
+		color:linen;
+		font-size:4vw;
+	}
+
+	button{
+		color: #FFFF;
+		padding:5px 15px; 
+		background:#F19833; 
+		border:0 none;
+		cursor:pointer;
+		-webkit-border-radius: 5px;
+		border-radius: 5px; 
+		margin-bottom: 20px;
+	}
+
+	input[type="button"]{
+		color: #FFFF;
+		padding:5px 15px; 
+		background:#F19833; 
+		border:0 none;
+		cursor:pointer;
+		-webkit-border-radius: 5px;
+		border-radius: 5px; 
+		margin-bottom: 20px;
+	}
+ 
+	input{
+	    color: linen;
+	    padding:10px 30px;
+	   	border:1px solid linen;
+	   	background: #0000;
+	   	cursor: pointer;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		margin-bottom: 20px;
+	}
+
+	    
+	.login{
+		padding-top: 50px;
+		text-align: center
+	}
+
+	.col-4{
+		border: 2px solid #F19833;
+	}
+
+	.reg{
+		color: #FFFF;
+		padding:5px 15px; 
+		background:#F19833; 
+		border:0 none;
+		cursor:pointer;
+		-webkit-border-radius: 5px;
+		border-radius: 5px; 
+		margin-bottom: 20px;
+	}
+</style>
+
+<script>
+if(getUrlVars()['error']) {
+	Swal.fire({
+		icon: 'warning',
+		title: 'Oops...',
+		text: decodeURIComponent(getUrlVars()['error']),
+	});
+}
+function getUrlVars()
+{
+	var vars = [], hash;
+	var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+	for(var i = 0; i < hashes.length; i++)
+	{
+		hash = hashes[i].split('=');
+		vars.push(hash[0]);
+		vars[hash[0]] = hash[1];
+	}
+	return vars;
+}
+</script>
+
+	
 </html>
