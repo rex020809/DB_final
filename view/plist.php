@@ -5,7 +5,7 @@
 		<!-- <meta http-equiv="refresh" content="2" /> -->
 	</head>
 	<body>
-
+	<?php require('../model/navbar.php'); ?>
 	<div class="container-fluid" id="product_main" >
 		<div class="row">
 			<div class="col-a col-md-2">Column 1
