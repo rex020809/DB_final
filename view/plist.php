@@ -2,14 +2,15 @@
 	<head>
 		<?php require('../src/head.php'); ?>
 		<link rel=stylesheet type="text/css" href="../src/css/product.css">
+		<!-- <meta http-equiv="refresh" content="2" /> -->
 	</head>
 	<body>
 
-	<div class="container-fluid" style="border:3px solid red; padding:0px 5vw 0px 5vw;">
-		<div class="row" style="border:2px solid blue;">
-			<div class="col-a col-md-2" style="border:1px solid green;">Column 1
+	<div class="container-fluid" id="product_main" >
+		<div class="row">
+			<div class="col-a col-md-2">Column 1
 			</div>
-			<div class="col-b col-md-10" style="border:1px solid yellow;">
+			<div class="col-b col-md-10">
 
 				<!--  篩選選項欄位 -->
 				<FORM class="form-horizontal" METHOD="GET" id="filter" style="text-align:center">
@@ -26,7 +27,7 @@
 					<!-- 價格排序:分成由低至高:ascend 由高至低:descend,label是為了使各項form有所區隔，margin:上 右 下 左 -->
 					<label> pricing sort:</label>
 					<select name="pricing_sort">
-						<option value="none">Plz select</option>
+						<option value="none">none</option>
 						<option value="ASC">ascend</option>
 						<option value="DESC">descend</option>
 					</select>
@@ -47,7 +48,7 @@
 					<label></label>
 
 					<!--送出按鈕,label是為了使各項form有所區隔，margin:上 右 下 左-->
-					<input type="submit" name="search" value="search" style="cursor:pointer; border-radius:5px;">
+					<input id="search" type="submit" name="search" value="search">
 
 				</FORM>
 
@@ -88,8 +89,6 @@
 							$page = @$_GET['page'];
 						}
 
-						//-------看價格區間有沒有設定，沒有的話先給default------
-
 
 						//---------連資料庫，開始抓資料------------
 						require('../model/db_check.php');
@@ -109,11 +108,11 @@
 						if ($p_sort!='none'){
 							$sql = $sql.$sort_filter;
 						}
-						//echo $sql;
+
 						$result = mysqli_query($conn, $sql);
 						$result_num = mysqli_num_rows($result);
 
-						//改動每頁顯示商品
+						//設定總共顯示的頁數
 						$page_num = $result_num/$pnumber;
 
 						//----------抓資料完畢，以下開始秀資料
