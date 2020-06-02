@@ -39,7 +39,7 @@ function pm(num)
 	if (num>0)
 	{
 	var t=document.getElementById("txt");
-	<?php $count=$count+1; 
+	<?php $count=$count+1;
 	?>
 	t.value="<?php echo $count;?>";
 	return false;
@@ -82,7 +82,7 @@ function pm(num)
 </form>
 
 </div>
-<div >	
+<div >
 <form class="plus">
 <input type="submit" value="加入購物車">
 </form>
@@ -99,7 +99,7 @@ function pm(num)
 
 
 
-<?php 
+<?php
 }
 ?>
 

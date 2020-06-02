@@ -51,7 +51,15 @@
 					<label></label>
 
 					<!--送出按鈕,label是為了使各項form有所區隔，margin:上 右 下 左-->
-					<input id="search" type="submit" name="search" value="search">
+					<input type="text" name="search" style="height:0px; width:0px; background-color:black; border: 0px;" value="<?php
+						if (!isset($_GET['search'])){
+							echo "none";
+						} else{
+							echo @$_GET['search'];
+						}
+					?>">
+
+					<input id="search" type="submit" name="search1" value="search">
 
 				</FORM>
 
@@ -92,25 +100,34 @@
 							$page = @$_GET['page'];
 						}
 
+						if (!isset($_GET['search'])) {
+							$search = "none";
+						} else {
+							$search = $_GET['search'];
+						}
 
 						//---------連資料庫，開始抓資料------------
 						require('../model/db_check.php');
 						$conn = db_check();
 						$sql="SELECT * FROM product WHERE price < $maxprice AND price > $minprice ";
 
-
 						//類別篩選
 						$c_filter = "AND category = '$category' ";
-
 						if( $category != 'all'){
 							$sql=$sql.$c_filter;
 						}
 
+						$search_sql = "AND p_name like '%$search%' ";
+						if ($search != 'none'){
+							$sql = $sql.$search_sql;
+						}
+
 						//排序篩選
-						$sort_filter = "ORDER BY price $p_sort";
+						$sort_filter = " ORDER BY price $p_sort ";
 						if ($p_sort!='none'){
 							$sql = $sql.$sort_filter;
 						}
+
 
 						$result = mysqli_query($conn, $sql);
 						$result_num = mysqli_num_rows($result);
@@ -128,14 +145,16 @@
 						} else {
 							$pnumber_this=$pnumber;
 						}
-						for ($i=0; $i < $pnumber_this; $i++) { //抓資料，印出商品
-							$row = mysqli_fetch_assoc($result);
 
-							//抓商品快照資料
-							$p_id=$row['p_id'];
-							$sql = "SELECT * FROM product_browse WHERE p_id='$p_id';";
-							$photo_result = mysqli_query($conn, $sql);
-							$photo_link = mysqli_fetch_assoc($photo_result);
+						if ($result_num>0) {
+							for ($i=0; $i < $pnumber_this; $i++) { //抓資料，印出商品
+								$row = mysqli_fetch_assoc($result);
+
+								//抓商品快照資料
+								$p_id=$row['p_id'];
+								$sql = "SELECT * FROM product_browse WHERE p_id='$p_id';";
+								$photo_result = mysqli_query($conn, $sql);
+								$photo_link = mysqli_fetch_assoc($photo_result);
 					?>
 
 						<!-- 每個商品的html -->
@@ -148,13 +167,16 @@
 							</div>
 							</a>
 						</div>
-					<?php }?>
+					<?php }} else{
+							echo "找不到您搜尋的商品";
+						}
+					?>
 				</div>
 
 				<!-- 顯示頁數的欄位 -->
 				<div id="page_index">
 					<?php
-						$query="category=$category&pricing_sort=$p_sort&minprice=$minprice&maxprice=$maxprice&pnumber=$pnumber";
+						$query="category=$category&pricing_sort=$p_sort&minprice=$minprice&maxprice=$maxprice&pnumber=$pnumber&search=$search";
 						if ($page!=0) {
 							$tmp = $page-1;
 					?>

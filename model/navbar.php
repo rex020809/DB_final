@@ -13,7 +13,7 @@
         </a>
 
         <!-- SearchBox -->
-        <form class = "form-inline">
+        <form class = "form-inline" method="GET">
 
             <input type ="text" name = "search" placeholder = " 搜尋商品" style ="width:50vw">
 
