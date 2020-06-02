@@ -5,7 +5,7 @@ require("db_check.php");
 $conn = db_check();
 $account = htmlspecialchars($_POST['account']);
 $password = md5(htmlspecialchars($_POST['password']));
-$sql = "SELECT name FROM member WHERE account = '$account' AND password = '$password';";
+$sql = "SELECT * FROM member WHERE account = '$account' AND password = '$password';";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) == 0) {

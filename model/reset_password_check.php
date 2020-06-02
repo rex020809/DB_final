@@ -3,19 +3,21 @@
 session_start();
 require("db_check.php");
 
-if($_POST['submit']){
+$conn = db_check();
+
+//if($_POST['submit']){
 	$oldpassword = md5($_POST['oldpassword']);
 	$newpassword = md5($_POST['newpassword']);
 	$newpassword2 = md5($_POST['newpassword2']);
 	$account = $_SESSION['account'];
-}
+//}
 if($newpassword == $newpassword2){
-	$password_sql = "SELECT password FROM member WHERE account = '$account';";
+	$password_sql = "SELECT * FROM member WHERE account = '$account';";
 	$password_result = mysqli_query($conn, $password_sql);
 	$row = mysqli_fetch_assoc($password_result);
 
 	if($oldpassword == $row["password"]){
-		$reset_sql = "UPDATE mamber SET password = '$newpassword' WHERE account = '$account';";
+		$reset_sql = "UPDATE member SET password = '$newpassword' WHERE account = '$account';";
 		$reset_result = mysqli_query($conn, $reset_sql);
 		echo '修改成功';
 		header("Location: logout.php");
