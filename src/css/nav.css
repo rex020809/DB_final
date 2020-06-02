@@ -70,7 +70,7 @@ div.topnav > nav a {
 {
   float:left;
   border:10 none;
-  top:60px;
+  top:40px;
 
   background-color: #fffffffd;
   width: 160px;
@@ -82,9 +82,11 @@ div.topnav > nav a {
   color:black;
   padding:12px 16px;
   text-decoration: none;
+  text-align: start;
   display:block ;
-  text-align: right;
+  
 }
+
 
 .topnav div.dropdown:hover .dropdown-content
 {
