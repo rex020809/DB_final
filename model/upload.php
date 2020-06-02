@@ -23,9 +23,10 @@
                 // 取得上傳之檔案類型
                 $filetype = explode('.', $_FILES["uploadFile"]["name"][$i]);
 
+                $length = count($filetype);
                 // 檔案命名&編號
                 $file_oldname = $path."/".$_FILES["uploadFile"]["name"][$i];
-                $file_newname = $path."/".(string)($i+1).".".$filetype[1];
+                $file_newname = $path."/".(string)($i+1).".".$filetype[$length-1];
 
 
                 // 把暫存檔案儲存至本地資料夾
