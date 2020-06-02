@@ -127,12 +127,17 @@
 						}
 						for ($i=0; $i < $pnumber_this; $i++) { //抓資料，印出商品
 							$row = mysqli_fetch_assoc($result);
+
+							//抓商品快照資料
+							$p_id=$row['p_id'];
+							$sql = "SELECT * FROM product_browse WHERE p_id='$p_id';";
+							$photo_result = mysqli_query($conn, $sql);
+							$photo_link = mysqli_fetch_assoc($photo_result);
 					?>
 
 						<!-- 每個商品的html -->
 						<div class="product_sum">
-							
-							<img src="../src/images/default.png" alt="not found!">
+							<img src="<?=$photo_link['pic_src']?>" alt="not found!">
 							<a href="../model/infopage.php?p_id=<?php echo $row['p_id']; ?> " >
 							<div class="product_title">
 								<?= $row['p_name'] ?><br><br>
