@@ -8,20 +8,16 @@
 
     <nav class = "navbar bg-navbar ">
 
-        <a class = "nav-brand" href="../index.php">
-          <img src = "../src/images/logo.png" style="width:150px%; height:90px">
+        <a class = "nav-brand" href="../view/plist.php">
+          <img src = "../src/images/logo.png" style="width:230px;">
         </a>
 
         <!-- SearchBox -->
         <form class = "form-inline">
 
-          <div class = "form-group">
             <input type ="text" name = "search" placeholder = " 搜尋商品" style ="width:50vw">
-          </div>
 
-          <div class = "form-group">
             <input type ="submit" value = "搜尋">
-          </div>
 
         </form>
 

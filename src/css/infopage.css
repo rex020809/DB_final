@@ -2,7 +2,7 @@ html, body
 	{
 		height: 100%;
 	}
-	
+
 h1
 {
 	color:#ffffff;
@@ -12,7 +12,7 @@ p
 {
 	color:#ffffff;
 	text-align:left;
-	
+
 }
 
 p.price
@@ -28,7 +28,7 @@ p.title
 div.mainb
 {
 	position:relative;
-	background-color: rgb(2, 30, 39);
+	background-color: #1B1B1B;
 	width:100%;
 	height:200vh;
 }
@@ -52,13 +52,13 @@ div.button
 {
 	display:inline-flex;
 	position:relative;
-	
-	
+
+
 }
 
 .button input[type="number"]
 {
-	width:50%; 
+	width:50%;
 	border-radius: 6px;
 	justify-content:flex-start;
 }
@@ -66,7 +66,7 @@ div.button
 
 .button input[type = "button"]
 {
-	
+
 	padding: 0em 0.75em;
 	text-align: center;
 	background-color: rgba(255,255,255,0.80);
@@ -80,10 +80,10 @@ div.button
 
 
 
-.button input[type = "button"]:hover 
+.button input[type = "button"]:hover
 {
 	background-color: rgba(255,255,255,0.60);
-} 
+}
 
 .plus input[type = "submit"]
 {
@@ -127,7 +127,7 @@ div.button
 
 .tab
 {
-	
+
 }
 
 td a
@@ -147,7 +147,7 @@ table.flex
 	width:100%;
 	padding:30px;
 	justify-content:center;
-	
+
 }
 
 
@@ -161,7 +161,7 @@ table.flex
 	width:400px;
 	padding:30px;
 	margin:10px;
-	
+
 }
 
 .flex2

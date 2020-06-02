@@ -8,7 +8,10 @@
 	<?php require('../model/navbar.php'); ?>
 	<div class="container-fluid" id="product_main" >
 		<div class="row">
-			<div class="col-a col-md-2">Column 1
+			<div class="col-a col-md-2">
+				<div id="sidebar">
+					Column 1
+				</div>
 			</div>
 			<div class="col-b col-md-10">
 
@@ -170,6 +173,7 @@
 			</div>
   		</div>
  </div>
+ <?php require('footer.php');?>
 
 
 </html>

@@ -5,14 +5,19 @@ div.topnav
   z-index: 100;
 }
 
+.nav-brand{
+    padding:0 0 0 0;
+}
 /* Add a background color to the top navigation */
 div.topnav > nav.bg-navbar{
-  background-color: rgb(2, 30, 39);
-
+    height: 15vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
 }
 
 /* Style the links inside the navigation bar */
-div.topnav > nav a {
+.nav-right a {
   float: left;
   color: #fffffffd;
   text-align: center;
@@ -33,36 +38,46 @@ div.topnav > nav a {
   background-color : rgb(2, 30, 39);
 }
 
+.form-inline{
+    margin: 0 0 0 0 ;
+}
 
 .topnav input[type = "text"]
 {
-
-  background:rgba(54,54,54,1);
-  border:0 none;
-  -webkit-border-radius:8px;
-          border-radius:8px;
-  color:rgb(171, 227, 231)
+    padding: 10px 10px 10px 15px;
+    height: 40px;
+    margin: 0 20px 0 10px;
+    background:rgba(54,54,54,1);
+    border:0 none;
+    -webkit-border-radius:8px;
+            border-radius:8px;
+    color:rgb(171, 227, 231);
 }
 
-.topnav input[type = "submit"]:hover
-{
-  background:rgba(226, 138, 6, 0.966);
-}
 
 .topnav input[type = "submit"]
 {
-  padding:5px 15px;
-  background: rgb(255,153,0);
-  border:0 none;
-  cursor:pointer;
+    height: 40px;
+    width: 70px;
+    padding:5px 15px;
+    margin: 0 0 0 0;
+    background: rgb(255,153,0);
+    border:0 none;
+    cursor:pointer;
+    color: black;
+
+    -webkit-border-radius: 10px;
+        border-radius: 10px;
+}
 
 
-  -webkit-border-radius: 15px;
-          border-radius: 15px;
+.topnav input[type = "submit"]:hover
+{
+    background:rgba(226, 138, 6, 0.966);
 }
 
 .topnav div.nav-right{
-
+    margin:0 0 0 0 ;
   display: flex;
 }
 
@@ -84,7 +99,7 @@ div.topnav > nav a {
   text-decoration: none;
   text-align: start;
   display:block ;
-  
+
 }
 
 

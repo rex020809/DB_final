@@ -2,13 +2,17 @@
 <html>
 <head>
 	<?php require("../src/head.php"); ?>
+	<link rel=stylesheet type="text/css" href="../src/css/loginPage.css">
 	<title>Reset Password</title>
 </head>
 <body>
 	<?php require("../model/navbar.php"); ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-8"><h1>地方的媽媽需要陪伴。</h1></div>
+			<div class="col-8">
+				<img src = "../src/images/logo.png" style="width:300px;">
+				<h2>地方的媽媽需要購物</h2>
+			</div>
 			<div class="col-4" id="login">
 				<h1 align="center" valign="center">Reset Password</h1>
 				<div class="reset">
@@ -22,57 +26,9 @@
 			</div>
 		</div>
 	</div>
-
+	<?php require('footer.php');?>
 </body>
 
-<style>
-	label{
-		color:linen;
-	}
-	body{
-		background-color: black;
-		margin: 0;
-		font-family: Arial, Helvetica, sans-serif;
-	}
-
-	h1{
-		margin-top: 10px;
-		color:linen;
-		font-size:4vw;
-	}
-
-	button{
-		padding: 5px 15px; 
-		background: #F19833; 
-		color:linen;
-		border: 0 none;
-		cursor: pointer;
-		-webkit-border-radius: 5px;
-		border-radius: 5px;
-		margin-top: 10px; 
-		margin-bottom: 20px;
-	}
-    
-    input{
-		padding: 10px 30px; 
-		border: 1px solid linen;
-		background: #0000;
-		color: linen;
-		cursor: pointer;
-		-webkit-border-radius: 5px;
-		border-radius: 5px; 
-		margin-bottom: 20px;
-	}
-
- 
-	.reset{
-	    padding-top: 50px;
-	    text-align: center
-	}
-	.col-4{
-		border: 2px solid #F19833;
-	}
-</style>
 
 <script>
 if(getUrlVars()['error']) {

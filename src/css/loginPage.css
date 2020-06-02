@@ -1,4 +1,116 @@
-.card { 
+h1{
+    //border: 2px solid #F19833;
+
+    margin: 40px 0 0 0;
+    color:linen;
+    font-size:4vw;
+}
+
+h2 {
+    margin: 20px 0 0 20px;
+    color:linen;
+    font-size:4vw;
+}
+
+body{
+    background-image: url(../images/bg.jpg);
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.85);
+    background-blend-mode:darken;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    padding: 10vh 0 10vh 0;
+}
+
+
+.col-4{
+    background-color: black;
+	border: 2px solid grey;
+}
+
+button{
+    height: 40px;
+    width: 80px;
+	color: #FFFF;
+	padding:5px 15px;
+	background:#F19833;
+	border:0 none;
+	cursor:pointer;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+input[type="button"]{
+    height: 40px;
+    width: 80px;
+    margin-left: 10px;
+	color: #FFFF;
+	padding:5px 15px;
+	background:#F19833;
+	border:0 none;
+	cursor:pointer;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+input{
+    color: linen;
+    padding:10px 30px;
+   	border:1px solid linen;
+   	background: #0000;
+   	cursor: pointer;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+
+.login{
+	padding: 20px 40px 40px 40px;
+	text-align: center;
+    //border: 2px solid #F19833;
+
+}
+
+.register{
+    padding: 20px 40px 40px 40px;
+	text-align: center;
+}
+
+.register input{
+    padding: 10px 30px;
+    border: 1px solid linen;
+    background: #0000;
+    color: linen;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.reset{
+    padding: 20px 40px 40px 40px;
+	text-align: center;
+}
+
+.reset input{
+    padding: 10px 30px;
+    border: 1px solid linen;
+    background: #0000;
+    color: linen;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.card {
 
     margin-left: 30%;
     margin-right:30%;
@@ -21,4 +133,3 @@
 {
     color: rgb(20, 20, 26);
 }
-
