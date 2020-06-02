@@ -17,7 +17,9 @@ else{
 	echo '登入成功';
 	$_SESSION['isLogin'] = 1;
     $_SESSION['name'] = $row["name"];
-    $_SESSION['account'] = $row["account"];
+	$_SESSION['account'] = $row["account"];
+	$_SESSION['email'] = $row["email"];
+	$_SESSION['c_num'] = $row["c_num"];
     header("Location: ../view/plist.php");
 }
 mysqli_close($conn);
