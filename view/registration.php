@@ -16,7 +16,7 @@
 			<div class="col-4" id="login">
 				<h1 align="center" valign="center">Registration</h1>
 				<div class="register">
-					<form id="form" name="form"  action="../model/registration_check.php">
+					<form id="form" name="form" action="../model/registration_check.php">
 						<input id="email" type="email" name="email" placeholder="請輸入E-mail" /><br>
 						<input id="c_num" type="tel" name="c_num" placeholder="請輸入手機號碼" pattern="09[0-9]{8}" required /><br>
 						<input id="b_date" type="date" placeholder="請輸入生日(yyyy/mm/dd)" name="b_date"/><br>
@@ -57,7 +57,7 @@ $("#form").submit(function(e) {
     };
 
     var query = jQuery.param(params);
-    var url = "registration_check.php";
+    var url = "../model/registration_check.php";
 
     $.ajax({
       type: "POST",
@@ -85,7 +85,7 @@ $("#form").submit(function(e) {
         }
       }
     });
-    //e.preventDefault(); // avoid to execute the actual submit of the form.
+    e.preventDefault(); // avoid to execute the actual submit of the form.
   }
 });
 </script>
