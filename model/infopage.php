@@ -29,7 +29,6 @@ if ($pic!='')
 	$pict=mysqli_fetch_row($pic);
 }
 
-$count=1
 ?>
 
 <script language="javascript">
@@ -38,22 +37,13 @@ function pm(num)
 {
 	if (num>0)
 	{
-	var t=document.getElementById("txt");
-	<?php $count=$count+1;
-	?>
-	t.value="<?php echo $count;?>";
+		document.getElementById("txt").value++;
+	} else if(document.getElementById("txt").value == 1) {
+		return false;
+	} else {
+		document.getElementById("txt").value--;
+	}
 	return false;
-	}
-	else
-	var t =document.getElementById("txt");
-	{
-	if (t>1)
-	{
-	<?php $count=$count-1; ?>
-	}
-	t.value="<?php echo $count;?>";
-	return false;
-	}
 }
 </script>
 
@@ -77,7 +67,7 @@ function pm(num)
 <div class="button">
 <form action="infopage.php" method="GET">
 <input type="button" onclick="pm(-1)" value="-">
-<input type="number" id="txt" name="shopcount" value="<?php echo $count; ?>" >
+<input type="number" id="txt" name="shopcount" value=1 >
 <input type="button" onclick="pm(1)" value="+">
 </form>
 
