@@ -105,6 +105,7 @@ body{
 }
 
 #product_display img{  /* 商品照片 */
+    object-fit: cover;
     border: 3px solid #F19833;
     border-radius: 10px 10px 0 0;
     width:230px;
