@@ -2,7 +2,10 @@
 <script src ="../view/navbar/navbar_script.js"></script>
 
 
-<?php session_start() ?>
+<?php 
+session_start(); 
+require("db_check.php");
+?>
 <!-- 搜尋欄navbar (會黏在最上層) -->
 <div class = "topnav">
 
@@ -35,6 +38,36 @@
             <div class = "dropdown-content dropdown-menu dropdown-menu-right dropdown-shoppingcart">
               <!-- <?php // require("../model/shoppingcart.php") shopping_cart() ?>  -->
               <li>購物車裡面空空的fdsaffdsafs</li>
+			  
+			  <?php
+			  $conn = db_check();
+			  /*
+					
+					for ($i=0;$i<sizeof($'var');$i++)
+					{
+						if(isset($_SESSION['i'])){
+							$cart_name = "SELECT p_name FROM product WHERE p_id = '$_SESSION['i']';";
+							$result = mysqli_query($conn, $cart_name);
+							$p_name = mysqli_fetch_assoc($result);
+							$arr=array($_SESSION['i']=>$p_name);
+						}
+					}
+					for ($i=0;$i<sizeof($'var');$i++)
+					{
+						echo $arr[$_SESSION['i']];
+					}
+				*/		
+			  ?>
+			  
+			  <input type="button" value="結帳!!" onclick="location.href='<?php
+				if(isset($_SESSION['isLogin'])){
+					echo '結帳頁面網址';
+				}
+				else{
+					echo '../view/login.php';
+				}
+			  ?>'">
+			  
             </div>
 
           </div>
