@@ -4,6 +4,7 @@
 <link rel="stylesheet" type = "text/css" href="../src/css/infopage.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>商品頁</title>
+<?php require('db_check.php'); ?>
 <?php require('../src/head.php')?>
 </head>
 <?php require('navbar.php')?>
@@ -13,7 +14,7 @@
 <?php
 $id=$_GET['p_id'];  //存當前頁面的商品id
 
-require('db_check.php');
+
 $conn = db_check();
 mysqli_query( $conn, "SET NAMES 'utf8'");
 

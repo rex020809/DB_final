@@ -1,6 +1,6 @@
 
 
-<link rel="stylesheet" type = "text/css" href="../src/css/nav.css">
+<link rel="stylesheet" type = "text/css" href="../src/css/nav.css?v=<?=time()?>">
 <!-- <script src ="../view/navbar/navbar_script.js"></script> -->
 
 <?php session_start() ?>
@@ -37,33 +37,28 @@
 
               <!-- 假設SESSION用 'product' 當購物車的key 可改 反正最後統一就好  -->
               <?php if( !isset($_SESSION['chart_id']) || count($_SESSION['chart_id']) ==0 ) { ?>
-                <li>購物車裡面空空的fdsaffdsafs</li>
+                <li>購物車裡面空空的</li>
               <?php
 
               }
 
               else{   //for(i in $_SESSION['product']){   ?>
-                  <?= "id:"?>
-                  <?php print_r($_SESSION['chart_id']);?>
-                  <?= "num:"?>
-                  <?php print_r($_SESSION['chart_num']);?>
-                  <button type="button" name="button" onclick="clearCart()">fuck your mom</button>
 
                       <!--  列出購物清單裡的東西 可以參考plist的寫法 但改成橫行顯示-->
 					<?php
 					//require('../model/db_check.php');
 					$conn = db_check();
-					
+
 					for($i=0;$i<sizeof($_SESSION['chart_id']);$i++){
 						$nav_id=$_SESSION['chart_id'][$i];
 						$nav_var="SELECT p_name FROM product WHERE p_id='$nav_id'";
 						$nav_result=mysqli_query($conn,$nav_var);
 						$nav_row=mysqli_fetch_assoc($nav_result);
 						$nav_pname=$nav_row['p_name'];
-						echo $nav_pname;
-					}	
-					?>
-
+						echo $nav_pname."數量：".$_SESSION['chart_num'][$i].'<br>';
+                    }
+                    ?>
+                    <button type="button" name="button" onclick="clearCart()">fuck your mom</button>
               <?php
                       //}?>
 
@@ -123,7 +118,7 @@
     function clearCart(){
         $.ajax({
             type: "GET",
-            url: "clearCart.php",
+            url: "../model/clearCart.php",
             success: function(data) {
     			Swal.fire({
                         icon: 'success',
