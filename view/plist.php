@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<?php require('../src/head.php'); ?>
+		<?php require('../src/head.php');require('../model/db_check.php'); ?>
 		<link rel=stylesheet type="text/css" href="../src/css/product.css">
 		<!-- <meta http-equiv="refresh" content="2" /> -->
 	</head>
@@ -107,7 +107,7 @@
 						}
 
 						//---------連資料庫，開始抓資料------------
-						require('../model/db_check.php');
+						
 						$conn = db_check();
 						$sql="SELECT * FROM product WHERE price < $maxprice AND price > $minprice ";
 
