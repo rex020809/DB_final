@@ -28,27 +28,7 @@ if ($pic!='')
 
 ?>
 
-<script language="javascript">
 
-function pm(num)
-{
-	if (num>0)
-	{
-		document.getElementById("txt").value++;
-	} else if(document.getElementById("txt").value == 1) {
-		return false;
-	} else {
-		document.getElementById("txt").value--;
-	}
-	return false;
-}
-</script>
-<script type="text/javascript">
-function pl(){
-	var num=document.getElementById('txt').value; 
-	<?php $num = "<script>document.write(num)</script>"?>
-}
-</script>
 
 
 <div class="mainb">
@@ -82,24 +62,10 @@ function pl(){
 </div>
 </div>
 
-<?php
-if(isset($_POST['post_value']))
-{
-	
-	if (isset($_SESSION['chart_id']))
-{
-	$_SESSION['chart_id'][sizeof($_SESSION['chart_id'])]=$id;
-	$_SESSION['chart_num'][sizeof($_SESSION['chart_id'])]=$num;
-}else
-{
-	$_SESSION['chart_id'][0]=$id;
-}
 
-}
-?>
 <div class="flexC">
 <p><?php echo $namee[7];?></p>
-
+<p><?php echo $_SESSION['chart_id'][1];?></p>
 
 </div>
 </div>
@@ -113,6 +79,36 @@ if(isset($_POST['post_value']))
 </div>
 
 </body>
+<script language="javascript">
+function pm(num)
+{
+	if (num>0)
+	{
+		document.getElementById("txt").value++;
+	} else if(document.getElementById("txt").value == 1) {
+		return false;
+	} else {
+		document.getElementById("txt").value--;
+	}
+	return false;
+}
+
+function pl(){
+	var num=document.getElementById('txt').value; 
+	<?php $num = "<script>document.write(num)</script>"?>
+	<?php
+	if (isset($_SESSION['chart_id']))
+{
+	$_SESSION['chart_id'][sizeof($_SESSION['chart_id'])]=$id;
+	$_SESSION['chart_num'][sizeof($_SESSION['chart_id'])]=$num;
+}else
+{
+	$_SESSION['chart_id'][0]=$id;
+}
+?>
+}
+</script>
+
 <script>
 $("#form").submit(function(e) {
     Swal.fire({
