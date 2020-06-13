@@ -1,6 +1,7 @@
-<link rel="stylesheet" type = "text/css" href="../src/css/nav.css">
-<script src ="../view/navbar/navbar_script.js"></script>
 
+
+<link rel="stylesheet" type = "text/css" href="../src/css/nav.css">
+<!-- <script src ="../view/navbar/navbar_script.js"></script> -->
 
 <?php session_start() ?>
 <!-- 搜尋欄navbar (會黏在最上層) -->
@@ -32,22 +33,26 @@
             </a>
 
             <!-- 這裡放被加入購物車內的商品清單(讀取SESSION資訊) -->
-            <div class = "dropdown-content dropdown-menu dropdown-menu-right dropdown-shoppingcart">
+            <div id="cart" class = "dropdown-content dropdown-menu dropdown-menu-right dropdown-shoppingcart">
 
               <!-- 假設SESSION用 'product' 當購物車的key 可改 反正最後統一就好  -->
-
-              <?php if( !isset($_SESSION['product']) || count($_SESSION['product']) ==0 ) { ?>            
+              <?php if( !isset($_SESSION['chart_id']) || count($_SESSION['chart_id']) ==0 ) { ?>
                 <li>購物車裡面空空的fdsaffdsafs</li>
-              <?php 
+              <?php
+
               }
 
               else{   //for(i in $_SESSION['product']){   ?>
-
+                  <?= "id:"?>
+                  <?php print_r($_SESSION['chart_id']);?>
+                  <?= "num:"?>
+                  <?php print_r($_SESSION['chart_num']);?>
+                  <button type="button" name="button" onclick="clearCart()">fuck your mom</button>
 
                       <!--  列出購物清單裡的東西 可以參考plist的寫法 但改成橫行顯示-->
 
 
-              <?php  
+              <?php
                       //}?>
 
                 <button style="width:inherit" onclick="location.href='../model/checkout.php'">前往結帳頁面</button>
@@ -101,3 +106,26 @@
     </nav>
 
 </div>
+
+<script type="text/javascript">
+    function clearCart(){
+        $.ajax({
+            type: "GET",
+            url: "clearCart.php",
+            success: function(data) {
+    			Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: 'clear success',
+                        allowOutsideClick: false,
+                        showCancelButton: false,
+                }).then((result) => {
+                    if (result.value) {
+                        window.location.reload();
+                    }
+                })
+            }
+        });
+    }
+
+</script>
