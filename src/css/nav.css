@@ -70,6 +70,10 @@ div.topnav > nav.bg-navbar{
         border-radius: 10px;
 }
 
+#cart{
+    width: 200px;
+    height: 400px;
+}
 
 .topnav input[type = "submit"]:hover
 {
