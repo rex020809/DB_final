@@ -41,9 +41,9 @@ require("db_check.php");
 			  
 			  <?php
 			  $conn = db_check();
-			  /*
+			  
 					
-					for ($i=0;$i<sizeof($'var');$i++)
+					for ($i=0;$i<sizeof($'chart_id');$i++)
 					{
 						if(isset($_SESSION['i'])){
 							$cart_name = "SELECT p_name FROM product WHERE p_id = '$_SESSION['i']';";
@@ -52,11 +52,11 @@ require("db_check.php");
 							$arr=array($_SESSION['i']=>$p_name);
 						}
 					}
-					for ($i=0;$i<sizeof($'var');$i++)
+					for ($i=0;$i<sizeof($'chart_id');$i++)
 					{
 						echo $arr[$_SESSION['i']];
 					}
-				*/		
+				
 			  ?>
 			  
 			  <input type="button" value="結帳!!" onclick="location.href='<?php
