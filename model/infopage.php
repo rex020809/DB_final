@@ -1,7 +1,4 @@
-<?php
-session_start();
-session_destroy();
-?>
+
 <html>
 <head>
 <link rel="stylesheet" type = "text/css" href="../src/css/infopage.css">
@@ -46,7 +43,12 @@ function pm(num)
 	return false;
 }
 </script>
-
+<script type="text/javascript">
+function pl(){
+	var num=document.getElementById('txt').value; 
+	<?php $num = "<script>document.write(num)</script>"?>
+}
+</script>
 
 
 <div class="mainb">
@@ -65,23 +67,38 @@ function pm(num)
 <p class="price"><?php echo "價格 $ ".$namee[5];?></p>
 <br>
 <div class="button">
-<form action="infopage.php" method="GET">
 <input type="button" onclick="pm(-1)" value="-">
 <input type="number" id="txt" name="shopcount" value=1 >
 <input type="button" onclick="pm(1)" value="+">
-</form>
 
 </div>
+
 <div >
-<form class="plus">
-<input type="submit" value="加入購物車">
+<form class="plus" id="form" method="post" action="infopage.php?p_id=<?php echo $id; ?>">
+<input type="text" name="post_value" value="<?php echo $id; ?>">
+<br>
+<input type="submit" value="加入購物車" onclick="pl()" >
 </form>
 </div>
 </div>
 
+<?php
+if(isset($_POST['post_value']))
+{
+	
+	if (isset($_SESSION['chart_id']))
+{
+	$_SESSION['chart_id'][sizeof($_SESSION['chart_id'])]=$id;
+	$_SESSION['chart_num'][sizeof($_SESSION['chart_id'])]=$num;
+}else
+{
+	$_SESSION['chart_id'][0]=$id;
+}
+
+}
+?>
 <div class="flexC">
 <p><?php echo $namee[7];?></p>
-
 
 
 </div>
@@ -96,5 +113,16 @@ function pm(num)
 </div>
 
 </body>
+<script>
+$("#form").submit(function(e) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Oops...',
+      text: '已加入購物車',
+    });
+    return;
+  )}
+</script>
+
 
 </html>

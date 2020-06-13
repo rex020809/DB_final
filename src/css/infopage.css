@@ -85,6 +85,14 @@ div.button
 	background-color: rgba(255,255,255,0.60);
 }
 
+.plus input[type = "text"]
+{
+	font-size:0em;
+	width:0%;
+	height:0%;
+	background-color: #1B1B1B;
+}
+
 .plus input[type = "submit"]
 {
 	text-align: center;

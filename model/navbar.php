@@ -13,7 +13,7 @@
         </a>
 
         <!-- SearchBox -->
-        <form class = "form-inline" method="GET" action="plist.php">
+        <form class = "form-inline" method="GET" action="../view/plist.php">
 
             <input type ="text" name = "search" placeholder = " 搜尋商品" style ="width:50vw">
 
