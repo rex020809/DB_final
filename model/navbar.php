@@ -50,7 +50,19 @@
                   <button type="button" name="button" onclick="clearCart()">fuck your mom</button>
 
                       <!--  列出購物清單裡的東西 可以參考plist的寫法 但改成橫行顯示-->
-
+					<?php
+					//require('../model/db_check.php');
+					$conn = db_check();
+					
+					for($i=0;$i<sizeof($_SESSION['chart_id']);$i++){
+						$nav_id=$_SESSION['chart_id'][$i];
+						$nav_var="SELECT p_name FROM product WHERE p_id='$nav_id'";
+						$nav_result=mysqli_query($conn,$nav_var);
+						$nav_row=mysqli_fetch_assoc($nav_result);
+						$nav_pname=$nav_row['p_name'];
+						echo $nav_pname;
+					}	
+					?>
 
               <?php
                       //}?>
