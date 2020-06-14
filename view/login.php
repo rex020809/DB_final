@@ -7,6 +7,7 @@ if(isset($_SESSION['isLogin'])){
 <!DOCTYPE html>
 <html>
 <head>
+	<?php require("../model/db_check.php"); ?>
 	<?php require("../src/head.php"); ?>
 	<link rel=stylesheet type="text/css" href="../src/css/loginPage.css">
 	<title>Login</title>
