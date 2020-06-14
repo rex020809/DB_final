@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php require("../src/head.php"); ?>
+	<?php require("../src/head.php");require("../model/db_check.php") ?>
 	<link rel=stylesheet type="text/css" href="../src/css/loginPage.css">
 	<title>Registration</title>
 </head>
