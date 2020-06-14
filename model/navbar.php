@@ -62,7 +62,16 @@
               <?php
                       //}?>
 
-                <button style="width:inherit" onclick="location.href='../model/checkout.php'">前往結帳頁面</button>
+                <button style="width:inherit" onclick="location.href='<?php
+				if(isset($_SESSION['isLogin'])){
+					echo '結帳頁面網址';
+				}
+				else{
+					echo '../view/login.php';
+				}
+			  ?>'">  '">前往結帳頁面</button>
+				
+				
 
               <?php
               }
