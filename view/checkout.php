@@ -47,7 +47,7 @@
 					<p class="cart_num">
 						<!--  -->
 						<input type="button" onclick="pm(<?=$nav_id?>, -1)" value="-">
-						<input type="number" id="txt<?=$nav_id?>" name="shopcount" value=<?= $_SESSION['chart_num'][$i];?> >
+						<input type="number" id="txt<?=$nav_id?>" name="shopcount<?=$nav_id?>" value=<?= $_SESSION['chart_num'][$i];?> >
 						<input type="button" onclick="pm(<?=$nav_id?>, 1)" value="+">
 	                </p>
 		        </div>
@@ -72,7 +72,7 @@
       <input id="creditcard" type="radio" name="way" value="creditcard">信用卡<br>
       <input disabled type="text" id="owner">持卡者姓名<br>
       <input disabled id="cardnum" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">卡號<br>
-      <input disabled id="date" type="tel" pattern="[0-1][0-12]/[0-9]{2}" placeholder="MM/YY">到期日<br>
+      <input disabled id="date" type="tel" pattern="[0-12]/[0-9]{2}" placeholder="MM/YY">到期日<br>
       <input disabled id="cvv" type="tel" inputmode="numeric" pattern="[0-9]{3}" placeholder="xxx">CVV<br>
 	   <input id="cash" type="radio" name="way" value="cash">貨到付款<br>
 
