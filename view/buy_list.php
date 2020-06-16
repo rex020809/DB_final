@@ -1,4 +1,3 @@
-<?php $is_view = TRUE; ?>
 
 <html>
     <head>
