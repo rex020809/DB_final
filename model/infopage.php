@@ -40,17 +40,31 @@ if ($pic!='')
 	<div class="flexB">  <!-- title部分 -->
 		<p class="title"><?php echo $namee[1];?></p>
 		<p class="price"><?php echo "價格 $ ".$namee[5];?></p>
+		<p class="price"><?php echo"庫存 : ".$namee[6];?></p>
 		<br>
 		<div class="button"> <!-- 商品數量調整部分 -->
 			<input type="button" onclick="pm(-1)" value="-">
 			<input type="number" id="txt" name="shopcount" value=1 >
 			<input type="button" onclick="pm(1)" value="+">
 		</div>
-		<div >
+		<div>
+		<?php if($namee[6]!=0)
+		{?>
 			<form class="plus" id="form" method="post" action="infopage.php?p_id=<?php echo $id; ?>">
 				<button type="button" name="button" onclick="add(<?= $id ?>)">Add to Cart</button>
 			</form>
-		</div>
+		
+		<?php
+		}else
+		{
+		?>
+			<form class="none">
+				<button disabled type="button" >Add to Cart</button>
+			</form>
+		<?php
+		}
+		?>	
+		</div>	
 	</div>
 
 	<div class="flexC"> <!-- 描述部份 -->

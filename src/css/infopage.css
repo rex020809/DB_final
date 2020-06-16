@@ -106,6 +106,18 @@ div.button
 	background-color: rgba(255,153,0,0.8);
 }
 
+.none button
+{
+	height: 40px;
+    width: 150px;
+    margin: 30px 0px 10px 0px;
+    color: black;
+    background-color: #CCCCCC;
+    border: 2px solid #000000;
+    cursor: pointer;
+    border-radius:8px;
+}
+
 .flexA
 {
 	flex:0 0 45%;
