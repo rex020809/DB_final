@@ -2,15 +2,15 @@
 <html>
 <head>
 	<?php require("../src/head.php"); ?>
-	<link rel=stylesheet type="text/css" href="../src/css/product.css">
+	<link rel=stylesheet type="text/css" href="../src/css/check.css">
 	<title>Checkout</title>
 </head>
 <body>
 	<?php require("../model/navbar.php"); ?>
 	<div class="container-fluid">
-		<div class="row">
+	<div class="row">
 <!-- 商品資訊 -->
-			<div class="col-12"><h1 align="center" valign="center">商品資訊</h1></div>
+	<div class="col-12"><h1 align="center" valign="center">商品資訊</h1></div>
     </div>
       <!-- 欄位名稱 -->
       <div class="row">
@@ -23,12 +23,12 @@
       <div class="row" id="price" data-price="300">
         <div class="col-3">1234</div>
         <div class="col-3"><input type="number" class="quantity" value="1" min="0" max="100"></div>
-        <div class="col-3">$300</div> 
+        <div class="col-3">$300</div>
         <div class="col-3"><span id="total">$300</span></div>
       </div>
 <!-- 付款資訊 -->
       <div class="row">
-        <div class="col-12"><h1 align="center" valign="center">付款資訊</h1></div>           
+        <div class="col-12"><h1 align="center" valign="center">付款資訊</h1></div>
         <!-- 付款方式選項 -->
         <form id="pay">
           <input id="creditcard" type="radio" name="way" value="creditcard">信用卡<br>
@@ -48,7 +48,6 @@
 <!-- 訂單資訊 -->
       <div class="row">
         <div class="col-12"><h1 align="center" valign="center">訂單資訊</h1></div>
-        
         <div class="col-8"></div>
         <div class="col-4">
           <div class="row">5555</div>
@@ -82,7 +81,7 @@ $('#price').on( 'click','.quantity',function(){
 });
 
 $('#creditcard').on('click',function(){
-  
+
 }
 
 </script>
