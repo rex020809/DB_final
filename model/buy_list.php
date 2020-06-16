@@ -11,7 +11,7 @@
     {
         header("Location: ../view/login.php");
     }
-    
+
 ?>
 
 <html>
@@ -23,11 +23,6 @@
 
         <?php
 
-        // 目前購物車內的部分
-
-
-
-        // 歷史購買部分
         $conn       = db_check();
         $sql        = "SELECT * FROM order_info WHERE buyer = $account " ;
         $result     = mysqli_query($conn, $sql);
@@ -67,8 +62,8 @@
                 $result_pname = mysqli_query($conn, $sql_pname);
                 $p_name = mysqli_fetch_assoc($result)['p_name'];
             ?>
-
-               <div class = "column">
+                <hr>
+                <div class = "column">
                     <p><?php echo $o_id." ".$p_id." ".$p_name." ".$p_style." ".$p_num." ".$o_prog." ".$o_time; ?> </p>
                 </div>
 
@@ -80,6 +75,7 @@
         <?php
         }
         ?>
+                    
 
     </body>
 </html>
