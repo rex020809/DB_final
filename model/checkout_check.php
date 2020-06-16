@@ -41,6 +41,12 @@ print_r($o_prog);
 for ($i=0; $i<sizeof($p_id); $i++){
 	$id=$p_id[$i];
 	$num=$p_num[$i];
+	for ($j=0; $j<sizeof($_SESSION['chart_num']); $j++){
+		if ($_SESSION['chart_id'][$i]==$id) {
+			$_SESSION['chart_num'][$i]=0;
+			break;
+		}
+	}
 	$update_sql = "UPDATE product SET stock=stock-$num WHERE p_id =$id; ";
 	$insert_sql = "INSERT INTO order_info (o_id, p_id, p_style, p_num, buyer, o_prog, pay_info, addr, o_time) VALUES ('$o_id', '$id', '$p_style', '$num', '$buyer', '$o_prog', '$pay_info', '$addr', '$o_time')";
 	if(mysqli_query($conn, $insert_sql)){
@@ -51,5 +57,7 @@ for ($i=0; $i<sizeof($p_id); $i++){
 		echo "Error";
 	}
 }
+require('sortcart.php');
+sortcart();
 mysqli_close($conn);
 ?>
