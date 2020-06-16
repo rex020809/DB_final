@@ -70,7 +70,7 @@
                         <button type="button" name="button" onclick="clearCart()">clear all</button>
                         <button type="button" onclick="location.href='<?php
             				if(isset($_SESSION['isLogin'])){
-            					echo '結帳頁面網址';
+            					echo '../view/checkout.php';
             				}
             				else{
             					echo '../view/login.php';

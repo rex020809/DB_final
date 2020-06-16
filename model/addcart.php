@@ -3,6 +3,7 @@
     $id=$_GET['id'];
     $num=$_GET['num'];
     if (isset($_SESSION['chart_id'])){
+<<<<<<< HEAD
 		for($i=0;$i<sizeof($_SESSION['chart_id']);$i++)
 		{
 			if($id==$_SESSION['chart_id'][$i])
@@ -21,8 +22,16 @@
 			$_SESSION['chart_num'][sizeof($_SESSION['chart_num'])]=$num;
 			//$_SESSION['chart_num'][sizeof($_SESSION['chart_id'])]=$num;
 		}
+=======
+        $_SESSION['chart_id'][sizeof($_SESSION['chart_id'])]=$id;
+        $_SESSION['chart_num'][sizeof($_SESSION['chart_num'])]=$num;
+        //$_SESSION['chart_num'][sizeof($_SESSION['chart_id'])]=$num;
+>>>>>>> complete
     } else {
         $_SESSION['chart_id'][0]=$id;
         $_SESSION['chart_num'][0]=$num;
     }
+<<<<<<< HEAD
 ?>
+=======
+>>>>>>> complete
