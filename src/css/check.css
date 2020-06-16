@@ -1,7 +1,9 @@
 .row{
+    display: flex;
+    align-items: center;
     text-align: center;
 }
 
 #pay{
-    text-align: center;
+    
 }
