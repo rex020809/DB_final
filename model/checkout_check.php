@@ -2,7 +2,7 @@
 session_start();
 require("db_check.php");
 
-$buyer = $_SESSION['name'];
+$buyer = $_SESSION['account'];
 $p_id = $_GET['id'];
 print_r($p_id);
 $p_num = array();
