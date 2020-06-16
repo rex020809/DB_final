@@ -5,5 +5,64 @@
 }
 
 #pay{
-    
+
+}
+
+#cart .nav-cart{
+    //border: 2px solid red;
+    margin: 10px 0px 0px 0px;
+    color: black;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+#cart hr{
+    margin: 10px 0px 0px 0px;
+}
+
+#cart p{
+    padding: 0px 10px 0px 10px;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+#cart .cart_pname{
+    margin-left: 10px;
+    width: 200px;
+    text-align: left;
+}
+
+#cart .cart_num{
+    width: 100px;
+    text-align: right;
+}
+
+#cart img{
+    border: 2px solid gray;
+    height: 55px;
+    width: 55px;
+}
+
+#cart_op{
+    margin: 20px 0px 10px 0px;
+}
+
+#cart_op button{
+    height: 40px;
+    width: 150px;
+    margin: 0px 5px 0px 5px;
+    color: black;
+    background-color: transparent;
+    border: 2px solid black;
+    cursor: pointer;
+    border-radius:8px;
+}
+
+#cart_op button:hover{
+    background-color:black;
+    color: white;
+    cursor: pointer;
+    border-radius:5px;
 }
