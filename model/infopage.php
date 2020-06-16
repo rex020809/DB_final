@@ -55,7 +55,6 @@ if ($pic!='')
 
 	<div class="flexC"> <!-- 描述部份 -->
 		<p><?php echo $namee[7];?></p>
-		<p><?php echo $_SESSION['chart_id'][1];?></p>
 	</div>
 </div>
 
