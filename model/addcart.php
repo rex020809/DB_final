@@ -10,3 +10,4 @@
         $_SESSION['chart_id'][0]=$id;
         $_SESSION['chart_num'][0]=$num;
     }
+?>
