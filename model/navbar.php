@@ -35,47 +35,53 @@
             <!-- 這裡放被加入購物車內的商品清單(讀取SESSION資訊) -->
             <div id="cart" class = "dropdown-content dropdown-menu dropdown-menu-right dropdown-shoppingcart">
 
-              <!-- 假設SESSION用 'product' 當購物車的key 可改 反正最後統一就好  -->
-              <?php if( !isset($_SESSION['chart_id']) || count($_SESSION['chart_id']) ==0 ) { ?>
-                <li>購物車裡面空空的</li>
-              <?php
+                <!-- 假設SESSION用 'product' 當購物車的key 可改 反正最後統一就好  -->
+                <?php if( !isset($_SESSION['chart_id']) || count($_SESSION['chart_id']) ==0 ) { ?>
+                    <li>購物車裡面空空的</li>
+                <?php
 
-              }
-
-              else{   //for(i in $_SESSION['product']){   ?>
-
-                      <!--  列出購物清單裡的東西 可以參考plist的寫法 但改成橫行顯示-->
+                } else { ?>
+                    <!--  列出購物清單裡的東西 可以參考plist的寫法 但改成橫行顯示-->
 					<?php
-					//require('../model/db_check.php');
-					$conn = db_check();
-
-					for($i=0;$i<sizeof($_SESSION['chart_id']);$i++){
-						$nav_id=$_SESSION['chart_id'][$i];
-						$nav_var="SELECT p_name FROM product WHERE p_id='$nav_id'";
-						$nav_result=mysqli_query($conn,$nav_var);
-						$nav_row=mysqli_fetch_assoc($nav_result);
-						$nav_pname=$nav_row['p_name'];
-						echo $nav_pname."數量：".$_SESSION['chart_num'][$i].'<br>';
-                    }
+    					$conn = db_check();
+    					for($i=0;$i<sizeof($_SESSION['chart_id']);$i++){
+    						$nav_id=$_SESSION['chart_id'][$i];
+    						$nav_var="SELECT p_name , pic_src FROM product AS p1, product_browse AS p2 WHERE p1.p_id='$nav_id' AND p2.p_id=p1.p_id";
+    						$nav_result=mysqli_query($conn,$nav_var);
+    						$nav_row=mysqli_fetch_assoc($nav_result);
+    						$nav_pname=$nav_row['p_name'];
+                            $nav_img=$nav_row['pic_src'];
                     ?>
-                    <button type="button" name="button" onclick="clearCart()">fuck your mom</button>
-              <?php
-                      //}?>
+                    <div class="nav-cart">
+                        <img src="<?=$nav_img?>" alt="fuck" >
+                        <p class="cart_pname">
+                            <?php echo $nav_pname?>
+                        </p>
+                        <p class="cart_num">
+                            <?php echo "數量：".$_SESSION['chart_num'][$i].'<br>';?>
+                        </p>
+                    </div>
+                    <hr>
 
-                <button style="width:inherit" onclick="location.href='<?php
-				if(isset($_SESSION['isLogin'])){
-					echo '結帳頁面網址';
-				}
-				else{
-					echo '../view/login.php';
-				}
-			  ?>'">  '">前往結帳頁面</button>
-				
-				
+    				<?php
+                        }
+                    ?>
+                    <div id="cart_op">
+                        <button type="button" name="button" onclick="clearCart()">clear all</button>
+                        <button type="button" onclick="location.href='<?php
+            				if(isset($_SESSION['isLogin'])){
+            					echo '結帳頁面網址';
+            				}
+            				else{
+            					echo '../view/login.php';
+            				}
+        			        ?>'">前往結帳頁面</button>
+                    </div>
 
-              <?php
-              }
-              ?>
+
+                <?php
+                }
+                ?>
 
             </div>
 
@@ -90,8 +96,7 @@
             <a class = "float-right" href = "../view/login.php">登入</a>
 
             <?php
-            }
-            else{
+            } else{
             ?>
 
             <!-- 不然就顯示使用者名稱&登出 -->

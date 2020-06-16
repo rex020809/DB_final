@@ -123,6 +123,24 @@ div.button
 	margin:15px;
 }
 
+#form button{
+	height: 40px;
+    width: 150px;
+    margin: 30px 0px 10px 0px;
+    color: black;
+    background-color: #F19833;
+    border: 2px solid #F19833;
+    cursor: pointer;
+    border-radius:8px;
+}
+
+#form button:hover{
+	background-color:rgba(226, 138, 6, 0.966);
+    color: black;
+    cursor: pointer;
+    border-radius:5px;
+}
+
 .flexC
 {
 	width:90%;

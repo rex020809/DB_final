@@ -1,7 +1,7 @@
 
 <html>
 <head>
-<link rel="stylesheet" type = "text/css" href="../src/css/infopage.css">
+<link rel="stylesheet" type = "text/css" href="../src/css/infopage.css?v=<?=time()?>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>商品頁</title>
 <?php require('db_check.php'); ?>
@@ -48,7 +48,7 @@ if ($pic!='')
 		</div>
 		<div >
 			<form class="plus" id="form" method="post" action="infopage.php?p_id=<?php echo $id; ?>">
-				<button type="button" name="button" onclick="add(<?= $id ?>)">fuck</button>
+				<button type="button" name="button" onclick="add(<?= $id ?>)">Add to Cart</button>
 			</form>
 		</div>
 	</div>
@@ -80,7 +80,7 @@ function add(id){
 			Swal.fire({
                     icon: 'success',
                     title: 'Success!',
-                    text: 'fuck success',
+                    text: 'successfully add',
                     allowOutsideClick: false,
                     showCancelButton: false,
                 }).then((result) => {
