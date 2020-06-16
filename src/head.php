@@ -23,3 +23,6 @@
 
 <!-- md5加密 -->
 <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.js"></script>
+
+<!-- 郵遞區號 -->
+<script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
