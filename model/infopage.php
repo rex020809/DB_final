@@ -53,7 +53,7 @@ if ($pic!='')
 			<form class="plus" id="form" method="post" action="infopage.php?p_id=<?php echo $id; ?>">
 				<button type="button" name="button" onclick="add(<?= $id ?>)">Add to Cart</button>
 			</form>
-		
+
 		<?php
 		}else
 		{
@@ -63,8 +63,8 @@ if ($pic!='')
 			</form>
 		<?php
 		}
-		?>	
-		</div>	
+		?>
+		</div>
 	</div>
 
 	<div class="flexC"> <!-- 描述部份 -->
