@@ -2,7 +2,7 @@
 <html>
 <head>
 	<?php require("../src/head.php"); ?>
-	<link rel=stylesheet type="text/css" href="../src/css/check.css">
+	<link rel=stylesheet type="text/css" href="../src/css/check.css?v=<?=time()?>">
 	<title>Checkout</title>
 </head>
 <body>
@@ -30,19 +30,23 @@
       <div class="row">
         <div class="col-12"><h1 align="center" valign="center">付款資訊</h1></div>
         <!-- 付款方式選項 -->
-        <form id="pay">
-          <input id="creditcard" type="radio" name="way" value="creditcard">信用卡<br>
-          <input id="cash" type="radio" name="way" value="cash">貨到付款<br>
-        </form>
+		<div class="col-12">
+			<form id="pay">
+	          <input id="creditcard" type="radio" name="way" value="creditcard">信用卡<br>
+	          <input id="cash" type="radio" name="way" value="cash">貨到付款<br>
+	        </form>
+		</div>
       </div>
 <!-- 寄送資訊 -->
       <div class="row">
         <div class="col-12"><h1 align="center" valign="center">寄送資訊</h1></div>
-        <form id="address" name="address" method="POST" action="#">
-          <label for="frmAddressS">地址</label>
-          <div id="twzipcode">
-            <input type="text" name="ship-address" required id="frmAddressS" placeholder="街／路、樓層" autocomplete="shipping street-address">
-          </div>
+		<div class="col-12">
+			<form id="address" name="address" method="POST" action="#">
+	          <label for="frmAddressS">地址</label>
+	          <div id="twzipcode">
+	            <input type="text" name="ship-address" required id="frmAddressS" placeholder="街／路、樓層" autocomplete="shipping street-address">
+	          </div>
+		</div>
         </form>
       </div>
 <!-- 訂單資訊 -->
@@ -82,7 +86,7 @@ $('#price').on( 'click','.quantity',function(){
 
 $('#creditcard').on('click',function(){
 
-}
+})
 
 </script>
 
