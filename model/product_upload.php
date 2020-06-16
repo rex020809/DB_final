@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 
 <body>
 
@@ -31,4 +29,6 @@
 
     </form>
 
-</html>
+</body>
+
+

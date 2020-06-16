@@ -114,6 +114,10 @@
                 <a href = "../view/reset_password.php">
                   <li> 修改密碼 </li>
                 </a>
+
+                <a href = "../view/buy_list.php">
+                  <li> 歷史訂單 </li>
+                </a>
               </div>
             </div>
             <a class = "float-right" href = "../model/logout.php">登出</a>

@@ -57,11 +57,7 @@
     if(isset($_POST['submit']))
     {
 
-        /* 找編號的方法待定 我先隨便用一個 */
-        // 從資料庫讀最大的編號再 + 1
-        $result = mysqli_query($conn, "SELECT MAX(p_id) FROM product");
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        $p_id = $row['MAX(p_id)'] + 1;
+        $p_id = $_POST['p_id'];
 
         $p_name   = stripcslashes($_POST['p_name']);
         $style    = stripcslashes($_POST['style']);
@@ -72,56 +68,23 @@
         $p_info   = stripcslashes($_POST['p_info']);
 
         // 上傳商品至資料庫
-        $upload = "INSERT INTO product(p_id, p_name, style, category, tag, price, stock, p_info) VALUES('$p_id', '$p_name', '$style', '$category', '$tag', '$price', '$stock', '$p_info')";
+        $upload = " UPDATE product 
+                    SET p_name = '$p_name', style = '$style', category = '$category', tag = '$tag', price = '$price', stock = '$stock', p_info = '$p_info'
+                    WHERE p_id = '$p_id'   ";
         mysqli_query($conn, $upload);
 
         // 上傳圖片至本地及資料庫
         $path = "../src/images/product/".$p_id;
         uploadFiles($conn, $p_id, $path);
 
-        
+       
+    }
+
+
 ?>
 
     <a href = "../view/product_data.php"> 回商品管理 </a>;
 <?php
-
-
-    }
-
-
-
-
-
-
- /*
-    $total = count($_FILES["uploadFiles"]["name"];)
-
-    foreach($_FILES as $file)
-
-    if ($_FILES["file"]["error"] > 0) {
-        echo "錯誤代碼 :" . $_FILES["file"]["error"]."<br />";
-    }
-    else{
-        echo "檔案名稱 :" . $_FILES["file"]["error"]."<br />";
-        echo "檔案類型 :" . $_FILES["file"]["type"]."<br />";
-        echo "檔案大小 :" . ($_FILES["file"]["size"] / 1024) ."Kb <br />";
-        echo "暫存名稱 :" . $_FILES["file"]["tmp_name"];
-
-    }
-
-    $path = "../src/images/product/1";
-    if(!file_exists($path)){
-        mkdir($path, 0777, true);
-        echo "建立成功";
-        move_uploaded_file($_FILES["file"]["tmp_name"], $path."/".$_FILES["file"]["name"]);
-    }
-    else{
-        echo "建立失敗";
-    }
-
-    */
-
-
 
 
 ?>
