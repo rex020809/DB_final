@@ -34,7 +34,7 @@ else{
 }
 print_r($o_id);
 
-$o_prog = '配送中';
+$o_prog = '未完成';
 $o_time = '2019/2/2 19:00';
 print_r($o_prog);
 
@@ -42,8 +42,8 @@ for ($i=0; $i<sizeof($p_id); $i++){
 	$id=$p_id[$i];
 	$num=$p_num[$i];
 	for ($j=0; $j<sizeof($_SESSION['chart_num']); $j++){
-		if ($_SESSION['chart_id'][$i]==$id) {
-			$_SESSION['chart_num'][$i]=0;
+		if ($_SESSION['chart_id'][$j]==$id) {
+			$_SESSION['chart_num'][$j]=0;
 			break;
 		}
 	}
@@ -51,7 +51,7 @@ for ($i=0; $i<sizeof($p_id); $i++){
 	$insert_sql = "INSERT INTO order_info (o_id, p_id, p_style, p_num, buyer, o_prog, pay_info, addr, o_time) VALUES ('$o_id', '$id', '$p_style', '$num', '$buyer', '$o_prog', '$pay_info', '$addr', '$o_time')";
 	if(mysqli_query($conn, $insert_sql)){
 		mysqli_query($conn, $update_sql);
-		//header("Location:../model/buy_list.php");
+		header("Location:../view/buy_list.php");
 	}
 	else{
 		echo "Error";

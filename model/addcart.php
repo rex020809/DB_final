@@ -10,7 +10,7 @@
 				$_SESSION['chart_num'][$i]=$_SESSION['chart_num'][$i]+$num;
 				$jus=1;//判斷有重複則$jus=1
 				break;
-			}else
+			} else
 			{
 				$jus=0;//判斷沒有重複則$jus=0
 			}
@@ -21,8 +21,6 @@
 			$_SESSION['chart_num'][sizeof($_SESSION['chart_num'])]=$num;
 			//$_SESSION['chart_num'][sizeof($_SESSION['chart_id'])]=$num;
 		}
-        $_SESSION['chart_id'][sizeof($_SESSION['chart_id'])]=$id;
-        $_SESSION['chart_num'][sizeof($_SESSION['chart_num'])]=$num;
         //$_SESSION['chart_num'][sizeof($_SESSION['chart_id'])]=$num;
     } else {
         $_SESSION['chart_id'][0]=$id;
