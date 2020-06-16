@@ -3,7 +3,7 @@
     $id=$_GET['id'];
     $num=$_GET['num'];
     if (isset($_SESSION['chart_id'])){
-		for($i=0;$i<=sizeof($_SESSION['chart_id']);$i++)
+		for($i=0;$i<sizeof($_SESSION['chart_id']);$i++)
 		{
 			if($id==$_SESSION['chart_id'][$i])
 			{
