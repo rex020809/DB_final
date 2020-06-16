@@ -7,7 +7,7 @@
 </head>
 <body>
 	<?php require("../model/navbar.php"); ?>
-  <form>
+  <form action="../model/checkout_check.php">
 	<div class="container-fluid">
 	<div class="row">
 <!-- 商品資訊 -->
@@ -23,7 +23,7 @@
       <!-- 資訊 -->
       <div class="row" id="price" data-price="300">
         <div class="col-3">1234</div>
-        <div class="col-3"><input type="number" class="quantity" value="1" min="0" max="100"></div>
+        <div class="col-3"><input id="quantity" type="number" class="quantity" value="1" min="0" max="100"></div>
         <div class="col-3">$300</div>
         <div class="col-3"><span id="total">$300</span></div>
       </div>
