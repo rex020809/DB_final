@@ -3,8 +3,15 @@ session_start();
 require("db_check.php");
 
 print_r($_GET['id']);
-//$p_id =
-$p_num = htmlspecialchars($_GET['quantity']);
+$p_id = htmlspecialchars($_GET['id']);
+
+$p_num = array();
+foreach ($p_id as $key => $value) {
+	array_push($p_num, $_GET[${"shopcount".$key+1}]); 
+}
+
+print_r($p_num);
+
 $pay_info = htmlspecialchars($_GET['way']);
 $county = htmlspecialchars($_GET['county']);
 $district = htmlspecialchars($_GET['district']);
