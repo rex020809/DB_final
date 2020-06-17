@@ -28,6 +28,11 @@
     align-items: center;
 }
 
+.cart_num input
+{
+    z-index: 100;
+}
+
 .cart .cart_pname{
     margin-left: 10px;
     width: 200px;
