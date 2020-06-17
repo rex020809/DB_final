@@ -51,7 +51,7 @@
 	                </p>
 		        </div>
 		        <div class="col-3">
-					<p class="cart_pname" id="price<?=$nav_id?>">
+					<p class="cart_price" id="price<?=$nav_id?>">
 					   <?php echo $nav_price?>
 				   	</p>
 		        </div>
