@@ -2,6 +2,7 @@
 <html>
 <head>
 	<?php require("../src/head.php"); ?>
+	<?php require_once("../model/db_check.php"); ?>
 	<link rel=stylesheet type="text/css" href="../src/css/loginPage.css">
 	<title>Reset Password</title>
 </head>
