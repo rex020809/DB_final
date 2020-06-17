@@ -1,7 +1,7 @@
 
 <html>
     <head>
-
+        <?php require("../model/db_check.php"); ?>
         <?php require('../src/head.php');?>
         <?php require('../model/navbar.php');?>
     </head>
@@ -9,8 +9,6 @@
     <body>
 
         <?php
-
-        require("../model/db_check.php");
 
         if(isset($_SESSION["account"])&& $_SESSION["account"] != "")
         {
@@ -112,7 +110,7 @@
         <?php
         }
         ?>
-                    
+
 
     </body>
 </html>
