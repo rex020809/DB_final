@@ -2,7 +2,6 @@
 <html>
 <head>
 	<?php require("../src/head.php"); ?>
-	<?php session_start();?>
 	<?php require('../model/db_check.php');?>
 	<link rel=stylesheet type="text/css" href="../src/css/check.css?v=<?=time()?>">
 	<title>Checkout</title>
@@ -24,7 +23,7 @@
       </div>
       <!-- 資訊 -->
             <?php
-                session_start();
+                // session_start();
                 $conn = db_check();
                 for($i=0;$i<sizeof($_SESSION['chart_id']);$i++){
                     $nav_id=$_SESSION['chart_id'][$i];
