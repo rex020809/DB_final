@@ -21,6 +21,16 @@
                     mkdir($path, 0700, true);
 
                 }
+				
+				$files = glob($path."/*");
+				foreach($files as $file)
+				{
+					if(is_file($file))
+					{
+						unlink($file);
+					}
+					
+				}
 
                 // 取得上傳之檔案類型
                 $filetype = explode('.', $_FILES["uploadFile"]["name"][$i]);

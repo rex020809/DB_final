@@ -47,7 +47,7 @@
             <label for="price"> 價格     </label> <input type = "number" name = "price" value = <?php echo $price; ?>> <br>
             <label for="stock"> 商品數量 </label> <input type = "number" name = "stock" value = <?php echo $stock; ?>> <br>
             <label for="style"> 商品款式 </label> <input type = "text" name = "style" value = <?php echo $style; ?>> <br>
-            <!-- <label for="file" > 檔案名稱 </label> <input type = "file" name = "uploadFile[]" id = "" accept="image/jpeg,image/jpg,image/gif,image/png" multiple = "multiple" /> <br> -->
+            <label for="file" > 檔案名稱 </label> <input type = "file" name = "uploadFile[]" id = "" accept="image/jpeg,image/jpg,image/gif,image/png" multiple = "multiple" /> <br>
             
         </div>
         
