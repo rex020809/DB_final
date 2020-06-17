@@ -35,6 +35,7 @@ else{
 print_r($o_id);
 
 $o_prog = '未完成';
+date_default_timezone_set("Asia/Shanghai");
 $o_time = date("Y-m-d H:i:s");
 print_r($o_prog);
 
