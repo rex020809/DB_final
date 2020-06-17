@@ -36,7 +36,7 @@
             ?>
 			<div class="row cart" id="price" data-price="300">
 				<div class="col-3">
-					<input type="checkbox" name="id[]" value="<?=$nav_id?>">
+					<input type="checkbox" name="id[]" id="check<?=$nav_id?>"value="<?=$nav_id?>" onclick="tp()">
 					<img src="<?=$nav_img?>" alt="fuck" >
 					<p class="cart_pname">
 					   <?php echo $nav_pname?>
@@ -45,18 +45,17 @@
 		        <div class="col-3">
 					<p class="cart_num">
 						<!--  -->
-						<input type="button" onclick="pm(<?=$nav_id?>, -1)" value="-">
-						<input type="number" id="txt<?=$nav_id?>" name="shopcount<?=$nav_id?>" value=<?= $_SESSION['chart_num'][$i];?> >
-						<input type="button" onclick="pm(<?=$nav_id?>, 1)" value="+">
+						<input type="button" onclick="pm(<?=$i?>, -1)" value="-">
+						<input type="number" id="txt<?=$i?>" name="shopcount<?=$nav_id?>" value=<?= $_SESSION['chart_num'][$i];?> >
+						<input type="button" onclick="pm(<?=$i?>, 1)" value="+">
 	                </p>
 		        </div>
 		        <div class="col-3">
-					<p class="cart_price" id="price<?=$nav_id?>">
+					<p class="cart_price" id="price<?=$i?>">
 					   <?php echo $nav_price?>
 				   	</p>
 		        </div>
-		        <div class="col-3" id="total<?=$nav_id?>"> <?= $_SESSION['chart_num'][$i]*$nav_price ?>
-				</div>
+		        <div class="col-3" id="total<?=$i?>"><?= $_SESSION['chart_num'][$i]*$nav_price ?></div>
 	            <hr>
 			</div>
             <?php
@@ -89,14 +88,10 @@
       </div>
 <!-- 訂單資訊 -->
       <div class="row">
-        <div class="col-12"><h1 align="center" valign="center">訂單資訊</h1></div>
-        <div class="col-8"></div>
-        <div class="col-4">
-          <div class="row">5555</div>
-          <div class="row">1000</div>
-          <div class="row">6555</div>
-          <div class=row><input type="submit" value="下訂單"></div>
-        </div>
+        <div class="col-6"><h1 align="center" valign="center">訂單資訊</h1></div>
+        <div class="col-6">
+			<p id="totalp">0</p>
+		</div>
       </div>
   </div>
 </div>
@@ -110,6 +105,18 @@ $("#twzipcode").twzipcode({
   zipcodeIntoDistrict: true
 });
 
+function tp(){
+	var totalprice=0;
+	var obj=document.getElementsByName("id[]");
+	for (var i = 0; i < <?= sizeof($_SESSION['chart_id'])?>; i++) {
+		if (obj[i].checked == true){
+			totalprice+=parseInt(document.getElementById("total"+i).innerHTML);
+		}
+	}
+	document.getElementById("totalp").innerHTML=totalprice;
+	return false;
+}
+
 function pm(id, num)  //增加商品數量
 {
 	if (num>0)
@@ -122,6 +129,14 @@ function pm(id, num)  //增加商品數量
 	}
 	var tprice=document.getElementById("price"+id).innerHTML*document.getElementById("txt"+id).value
 	document.getElementById("total"+id).innerHTML = tprice;
+	var totalprice=0;
+	var obj=document.getElementsByName("id[]");
+	for (var i = 0; i < <?= sizeof($_SESSION['chart_id'])?>; i++) {
+		if (obj[i].checked == true){
+            totalprice+=parseInt(document.getElementById("total"+i).innerHTML);
+        }
+	}
+	document.getElementById("totalp").innerHTML=totalprice;
 	return false;
 }
 
