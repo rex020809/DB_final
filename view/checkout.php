@@ -91,6 +91,7 @@
         <div class="col-6"><h1 align="center" valign="center">訂單資訊</h1></div>
         <div class="col-6">
 			<p id="totalp">0</p>
+			<input type="submit" name="" value="submit">
 		</div>
       </div>
   </div>
