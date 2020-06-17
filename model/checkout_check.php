@@ -35,7 +35,7 @@ else{
 print_r($o_id);
 
 $o_prog = '未完成';
-$o_time = '2019/2/2 19:00';
+$o_time = date("Y-m-d H:i:s");
 print_r($o_prog);
 
 for ($i=0; $i<sizeof($p_id); $i++){
