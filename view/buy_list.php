@@ -20,7 +20,7 @@
         }
 
         $conn       = db_check();
-        $sql        = "SELECT * FROM order_info WHERE buyer = '$account' " ;
+        $sql        = "SELECT * FROM order_info WHERE buyer = '$account' ORDER BY o_id DESC" ;
         $result     = mysqli_query($conn, $sql);
         $result_num = mysqli_num_rows($result);
 
