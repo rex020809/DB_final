@@ -36,7 +36,7 @@
         ?>
             <div class = "transaction_list">
                 <div class = "title">
-                    <p>訂單編號 商品編號 商品名稱 款式 數量 目前進度 交易時間</p>
+                    <p>訂單編號 商品編號 商品名稱 款式 數量 目前進度 交易時間 總價</p>
                 </div>
 
             <?php
@@ -57,13 +57,17 @@
                     $o_time     = $row['o_time'];
 
 
-                    $sql_pname  = "SELECT p_name FROM product WHERE p_id = $p_id";
+                    $sql_pname  = "SELECT p_name, price FROM product WHERE p_id = $p_id";
                     $result_pname = mysqli_query($conn, $sql_pname);
-                    $p_name = mysqli_fetch_assoc($result_pname)['p_name'];
+                    $row = mysqli_fetch_assoc($result_pname);
+                    $p_name = $row['p_name'];
+                    $price = $row['price'];
+
+                    $total_price = $p_num * $price;
             ?>
                     <hr>
                     <div class = "column">
-                        <p><?php echo $o_id." ".$p_id." ".$p_name." ".$p_style." ".$p_num." ".$o_prog." ".$o_time; ?> </p>
+                        <p><?php echo $o_id." ".$p_id." ".$p_name." ".$p_style." ".$p_num." ".$o_prog." ".$o_time." ".$total_price; ?> </p>
                     </div>
 
             <?php
