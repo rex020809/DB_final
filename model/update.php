@@ -9,50 +9,48 @@
         $total = count($_FILES["uploadFile"]["name"]);
         echo "檔案數量 :" . $total;
 
-        for($i = 0; $i<$total; $i++)
+        if($_FILES["uploadFile"]["error"][0] != 4)
         {
-            // 檢查檔案有沒有損毀
-            if($_FILES["uploadFile"]["error"][$i] == 0)
+            // 刪除本地舊檔案
+            $files = glob($path."/*");
+            foreach($files as $file)
             {
-                // 檢查路徑是否存在，如果不存在就新建資料夾
-                if(!file_exists($path))
+                if(is_file($file))
+                {
+                    unlink($file);
+                }
+            }
+
+            // 刪除資料庫的舊紀錄
+            $delete_old_browse = "DELETE FROM product_browse WHERE p_id = '$p_id'";
+            mysqli_query($conn, $delete_old_browse);
+
+            for($i = 0; $i<$total; $i++)
+            {
+                // 檢查檔案有沒有損毀
+                if($_FILES["uploadFile"]["error"][$i] == 0)
                 {
 
-                    mkdir($path, 0700, true);
+                    // 取得上傳之檔案類型
+                    $filetype = explode('.', $_FILES["uploadFile"]["name"][$i]);
 
+                    $length = count($filetype);
+                    // 檔案命名&編號
+                    $file_oldname = $path."/".$_FILES["uploadFile"]["name"][$i];
+                    $file_newname = $path."/".(string)($i+1).".".$filetype[$length-1];
+
+                    // 把暫存檔案儲存至本地資料夾
+                    move_uploaded_file($_FILES["uploadFile"]["tmp_name"][$i], $file_oldname) or die("fuckyourmom");
+                    rename($file_oldname, $file_newname) ;
+
+                    // 把圖片資訊上傳至資料庫
+                    $product_browse = "INSERT INTO product_browse(p_id, pic_num, pic_src, click_times) VALUES('$p_id', '$i', '$file_newname', 0)";
+                    mysqli_query($conn, $product_browse);
                 }
-				
-				$files = glob($path."/*");
-				foreach($files as $file)
-				{
-					if(is_file($file))
-					{
-						unlink($file);
-					}
-					
-				}
-
-                // 取得上傳之檔案類型
-                $filetype = explode('.', $_FILES["uploadFile"]["name"][$i]);
-
-                $length = count($filetype);
-                // 檔案命名&編號
-                $file_oldname = $path."/".$_FILES["uploadFile"]["name"][$i];
-                $file_newname = $path."/".(string)($i+1).".".$filetype[$length-1];
-
-
-                // 把暫存檔案儲存至本地資料夾
-                move_uploaded_file($_FILES["uploadFile"]["tmp_name"][$i], $file_oldname) or die("fuckyourmom");
-                rename($file_oldname, $file_newname) ;
-
-                // 把圖片資訊上傳至資料庫
-                $product_browse = "INSERT INTO product_browse(p_id, pic_num, pic_src, click_times) VALUES('$p_id', '$i', '$file_newname', 0)";
-                mysqli_query($conn, $product_browse);
-            }
-            else
-            {
-                echo $_FILES["uploadFile"]["error"][$i];
-
+                else
+                {
+                   echo $_FILES["uploadFile"]["error"][$i];
+                }
             }
         }
 
